@@ -1,13 +1,18 @@
 import type { NextPage } from 'next'
+import type { TechTypes } from '../lib/types'
+import Meta from '../components/Meta'
 import TechComponent from '../components/TechComponent'
-import Head from 'next/head'
+import data from '../public/data.json'
 import Image from 'next/image'
 
 const Technology: NextPage = () => {
+    const tech: TechTypes = [ ...data.technology ]
   return (
-    <div>
-      <TechComponent />
-    </div>
+    <>
+        <Meta />
+        <h3><span>03</span> SPACE LAUNCH 101</h3>
+        <TechComponent tech={tech} />
+    </>
   )
 }
 
