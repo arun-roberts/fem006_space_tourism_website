@@ -1,3 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap');
+
+$dark-blue: #0b0d17
+$light-blue: #d0d6f9
+$basic-white: #fff
+
+@mixin bellefair-white
+  font-family: 'Bellefair', serif
+  color: $basic-white
+  text-transform: uppercase
+
+@mixin barlow-white
+  font-family: 'Barlow Condensed', sans-serif
+  color: $basic-white
+
+@mixin barlow-blue
+  font-family: 'Barlow Condensed', sans-serif
+  color: $light-blue
+  text-transform: uppercase
+
+@mixin heading-one 
+  @include bellefair-white
+  font-size: 150px
+  
+
+@mixin heading-two
+  @include bellefair-white
+  font-size: 100px
+
+@mixin heading-three
+  @include bellefair-white
+  font-size: 56px
+
+@mixin heading-four
+  @include bellefair-white
+  font-size: 32px
+
+@mixin heading-five
+  @include barlow-blue
+  font-size: 28px
+  letter-spacing: 4.75
+
+@mixin subheading-one
+  @include bellefair-white
+  font-size: 28px
+
+@mixin subheading-two
+  @include barlow-white
+  font-size: 14px
+  letter-spacing: 2.35
+  text-transform: uppercase
+
+@mixin nav-text
+  @include barlow-white
+  font-size: 16px
+  letter-spacing: 2.7
+  text-transform: uppercase
+  
+@mixin body-text
+  @include barlow-white
+  font-size: 18px
+  line-height: 32px
+
+
+
+
+
+  
+
+  
 * 
   box-sizing: border-box
   padding: 0
