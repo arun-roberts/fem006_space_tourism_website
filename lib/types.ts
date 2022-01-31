@@ -1,4 +1,4 @@
-export type Destination = {
+export type Dest = {
     name: string;
     images: {
         png: string;
@@ -9,7 +9,7 @@ export type Destination = {
     travel: string;
 };
 
-export type Destinations = Destination[];
+export type DestTypes = Dest[];
 
 export type CrewMemb = {
     name: string;
@@ -45,7 +45,7 @@ export type Tech = {
 export type TechTypes = Tech[];
 
 export type Data = {
-    destinations: Destinations;
+    destinations: DestTypes;
     crew: CrewTypes;
     technology: TechTypes;
 };
