@@ -21,7 +21,7 @@ $basic-white: #fff
 @mixin heading-one 
   @include bellefair-white
   font-size: 150px
-  
+  line-height: 172px
 
 @mixin heading-two
   @include bellefair-white
@@ -38,22 +38,25 @@ $basic-white: #fff
 @mixin heading-five
   @include barlow-blue
   font-size: 28px
-  letter-spacing: 4.75
+  letter-spacing: 4.75px
 
 @mixin subheading-one
   @include bellefair-white
   font-size: 28px
+  line-height: 32px
 
 @mixin subheading-two
   @include barlow-white
   font-size: 14px
-  letter-spacing: 2.35
+  letter-spacing: 2.3625px
+  line-height: 17px
   text-transform: uppercase
 
 @mixin nav-text
   @include barlow-white
   font-size: 16px
-  letter-spacing: 2.7
+  letter-spacing: 2.7px
+  line-height: 19px
   text-transform: uppercase
   
 @mixin body-text
@@ -72,3 +75,67 @@ $basic-white: #fff
   box-sizing: border-box
   padding: 0
   margin: 0
+
+html, body
+  height: 100%
+  width: 100%
+
+ul
+  list-style: none
+
+a
+  text-decoration: none
+
+#__next
+  height: 100%
+  width: 100%
+
+.site-container
+  width: 100%
+  height: 100%
+
+.container
+  width: 100%
+  height: 100%
+
+.images
+  position: absolute
+
+.nav
+  position: absolute
+  top: 0
+  right: 0
+  height: 100%
+  width: 80%
+  transition: all 0.4s ease-in
+  background-color: $dark-blue
+
+  &--open
+    transform: translateX(0)
+
+  &--closed
+    transform: translateX(100%)
+
+  &-list
+
+    &-item
+
+      &__text
+
+        &--number
+
+
+.landing
+  width: 100%
+  height: 100%
+  background-image: url('../public/assets/home/background-home-mobile.jpg')
+
+  &__heading-five
+    @include heading-five
+    
+  &__heading-one
+    @include heading-one
+    
+  &__intro-text
+    @include body-text
+    

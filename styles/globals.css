@@ -1,7 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+#__next {
+  height: 100%;
+  width: 100%;
+}
+
+.site-container {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.images {
+  position: absolute;
+}
+
+.nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 80%;
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+  background-color: #0b0d17;
+}
+
+.nav--open {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.nav--closed {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+.landing {
+  width: 100%;
+  height: 100%;
+  background-image: url("../public/assets/home/background-home-mobile.jpg");
+}
+
+.landing__heading-five {
+  font-family: 'Barlow Condensed', sans-serif;
+  color: #d0d6f9;
+  text-transform: uppercase;
+  font-size: 28px;
+  letter-spacing: 4.75px;
+}
+
+.landing__heading-one {
+  font-family: 'Bellefair', serif;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 150px;
+  line-height: 172px;
+}
+
+.landing__intro-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  color: #fff;
+  font-size: 18px;
+  line-height: 32px;
 }
 /*# sourceMappingURL=globals.css.map */
