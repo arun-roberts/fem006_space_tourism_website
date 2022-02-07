@@ -1,9 +1,12 @@
+// ---------FONT IMPORTS--------------
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap');
 
+// -----------COLOUR VARIABLES--------------
 $dark-blue: #0b0d17
 $light-blue: #d0d6f9
 $basic-white: #fff
 
+// ------------FONT GENERALS------------------
 @mixin bellefair-white
   font-family: 'Bellefair', serif
   color: $basic-white
@@ -18,6 +21,7 @@ $basic-white: #fff
   color: $light-blue
   text-transform: uppercase
 
+// -------------FONT SPECIFICS-----------------
 @mixin heading-one 
   @include bellefair-white
   font-size: 150px
@@ -63,13 +67,6 @@ $basic-white: #fff
   @include barlow-white
   font-size: 18px
   line-height: 32px
-
-
-
-
-
-  
-
   
 * 
   box-sizing: border-box
@@ -90,16 +87,25 @@ a
   height: 100%
   width: 100%
 
-.site-container
-  width: 100%
-  height: 100%
-
 .container
   width: 100%
   height: 100%
 
+  &--nav
+    width: 100%
+    height: 100%
+    position:relative
+
+.sub-header
+  @include subheading-one
+
+  &--num
+    opacity: 0.25
+
 .images
   position: absolute
+
+
 
 .nav
   position: absolute
@@ -108,7 +114,8 @@ a
   height: 100%
   width: 80%
   transition: all 0.4s ease-in
-  background-color: $dark-blue
+  background-color: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(81.5485px);
 
   &--open
     transform: translateX(0)
@@ -128,7 +135,8 @@ a
 .landing
   width: 100%
   height: 100%
-  background-image: url('../public/assets/home/background-home-mobile.jpg')
+  background: $dark-blue url('../public/assets/home/background-home-mobile.jpg') no-repeat
+  background-size: cover
 
   &__heading-five
     @include heading-five
@@ -136,6 +144,6 @@ a
   &__heading-one
     @include heading-one
     
-  &__intro-text
+  &__text-body
     @include body-text
     

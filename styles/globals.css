@@ -24,14 +24,26 @@ a {
   width: 100%;
 }
 
-.site-container {
+.container {
   width: 100%;
   height: 100%;
 }
 
-.container {
+.container--nav {
   width: 100%;
   height: 100%;
+}
+
+.sub-header {
+  font-family: 'Bellefair', serif;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 28px;
+  line-height: 32px;
+}
+
+.sub-header--num {
+  opacity: 0.25;
 }
 
 .images {
@@ -46,7 +58,9 @@ a {
   width: 80%;
   -webkit-transition: all 0.4s ease-in;
   transition: all 0.4s ease-in;
-  background-color: #0b0d17;
+  background-color: rgba(255, 255, 255, 0.04);
+  -webkit-backdrop-filter: blur(81.5485px);
+          backdrop-filter: blur(81.5485px);
 }
 
 .nav--open {
@@ -62,7 +76,8 @@ a {
 .landing {
   width: 100%;
   height: 100%;
-  background-image: url("../public/assets/home/background-home-mobile.jpg");
+  background: #0b0d17 url("../public/assets/home/background-home-mobile.jpg") no-repeat;
+  background-size: cover;
 }
 
 .landing__heading-five {
@@ -81,7 +96,7 @@ a {
   line-height: 172px;
 }
 
-.landing__intro-text {
+.landing__text-body {
   font-family: 'Barlow Condensed', sans-serif;
   color: #fff;
   font-size: 18px;

@@ -6,7 +6,7 @@ const Header: () => JSX.Element = () => {
     const [isOpen, setIsOpen ] = useState<boolean>(false)
 
   return (
-    <>
+    <header className="container--nav">
         <div className="images">
             <Image src='/assets/shared/logo.svg' alt='Company logo' width='100' height='100' />
             <Image 
@@ -49,7 +49,7 @@ const Header: () => JSX.Element = () => {
 
             </ul>
         </nav>
-    </>
+    </header>
   )
 }
 

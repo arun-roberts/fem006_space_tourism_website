@@ -20,7 +20,7 @@ const Crew: NextPage = () => {
   return (
     <>
         <Meta />
-        <h3><span>02</span> MEET YOUR CREW</h3>
+        <h2 className="sub-header"><span className="sub-header--num">02</span> MEET YOUR CREW</h2>
         <div>
           <Image src={member.images.png.slice(1)} width={member.images.width} height={member.images.height} alt={`Image of ${member.role} ${member.name}`} />
           <nav>
@@ -35,8 +35,8 @@ const Crew: NextPage = () => {
             </ul>
           </nav>
           <div>
-            <h4>{member.role}</h4>
-            <h3>{member.name}</h3>
+            <h3>{member.role}</h3>
+            <h4>{member.name}</h4>
             <p>{member.bio}</p>
           </div>
         </div>
