@@ -88,24 +88,30 @@ a
   width: 100%
 
 .container
+  position: absolute
   width: 100%
   height: 100%
 
-  &--nav
-    width: 100%
-    height: 100%
-    position:relative
+.header
+  width: 100%
+  height: 100%
+  position: absolute
+  z-index: 1
+
+  &__logo
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    display: flex
+    justify-content: space-between
+    align-items: center
 
 .sub-header
   @include subheading-one
 
   &--num
     opacity: 0.25
-
-.images
-  position: absolute
-
-
 
 .nav
   position: absolute
@@ -114,8 +120,18 @@ a
   height: 100%
   width: 80%
   transition: all 0.4s ease-in
-  background-color: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(81.5485px);
+  background-color: rgba(255, 255, 255, 0.04)
+  backdrop-filter: blur(81.5485px)
+  display: flex
+  flex-direction: row-reverse
+
+  &__hamburger
+    width: 2rem
+    height: 2rem
+    position: relative
+    display: block
+
+  &__exit
 
   &--open
     transform: translateX(0)
@@ -124,12 +140,19 @@ a
     transform: translateX(100%)
 
   &-list
+    height: 100%
+    display: flex
+    flex-direction: column
 
     &-item
 
       &__text
+        @include subheading-two
+        font-weight: normal
 
         &--number
+          font-weight: bold
+          
 
 
 .landing

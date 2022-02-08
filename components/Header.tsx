@@ -6,25 +6,38 @@ const Header: () => JSX.Element = () => {
     const [isOpen, setIsOpen ] = useState<boolean>(false)
 
   return (
-    <header className="container--nav">
-        <div className="images">
-            <Image src='/assets/shared/logo.svg' alt='Company logo' width='100' height='100' />
-            <Image 
-                onClick={() => setIsOpen(true)} 
-                src='/assets/shared/icon-hamburger.svg' 
-                alt='Click to open navigation'
-                width='5'
-                height='5'
-            />
+    <header className="header">
+        <div className="header__logo">
+            <div className="logo">
+                <Image 
+                    src='/assets/shared/logo.svg' 
+                    alt='Company logo' 
+                    layout="fill"
+                    objectFit='contain'
+                />
+            </div>
+            <div className="nav__hamburger">
+                <Image 
+                    onClick={() => setIsOpen(true)} 
+                    src='/assets/shared/icon-hamburger.svg'
+                    alt='Click to open navigation'
+                    layout="fill"
+                    objectFit='contain'
+                    className="fuckingWork"
+                />
+            </div>
         </div>
         <nav className={`nav ${isOpen ? 'nav--open' : 'nav--closed'}`}>
-            <Image 
-                onClick={() => setIsOpen(false)} 
-                src='/assets/shared/icon-close.svg' 
-                alt='Click to close navigation'
-                width='5'
-                height='5'
-            />
+            <div className="nav__hamburger">
+                <Image 
+                    onClick={() => setIsOpen(false)} 
+                    src='/assets/shared/icon-close.svg'
+                    alt='Click to close navigation'
+                    layout="fill"
+                    objectFit='contain'
+                    className="fuckingWork"
+                />
+            </div>
             <ul className='nav-list'>
                 <li className='nav-list-item'>
                     <Link href='/'>

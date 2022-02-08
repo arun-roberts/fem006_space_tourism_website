@@ -18,7 +18,7 @@ const Technology: NextPage = () => {
     const tech: TechTypes = [ ...data.technology ]
     let displayed: Tech = tech[currentTech]
   return (
-    <>
+    <div>
         <Meta />
         <h3><span>03</span> SPACE LAUNCH 101</h3>
         <div>
@@ -43,7 +43,7 @@ const Technology: NextPage = () => {
             <p>{displayed.description}</p>
           </div>
         </div>
-    </>
+    </div>
   )
 }
 
