@@ -16,7 +16,7 @@ const Header: () => JSX.Element = () => {
                     objectFit='contain'
                 />
             </div>
-            <div className="nav__hamburger">
+            <div className="header__hamburger">
                 <Image 
                     onClick={() => setIsOpen(true)} 
                     src='/assets/shared/icon-hamburger.svg'
@@ -28,7 +28,7 @@ const Header: () => JSX.Element = () => {
             </div>
         </div>
         <nav className={`nav ${isOpen ? 'nav--open' : 'nav--closed'}`}>
-            <div className="nav__hamburger">
+            <div className="nav__exit">
                 <Image 
                     onClick={() => setIsOpen(false)} 
                     src='/assets/shared/icon-close.svg'
