@@ -18,36 +18,51 @@ const Destination: NextPage = () => {
     const destinations: DestTypes = [ ...data.destinations ]
     let destination: Dest = destinations[currentDest]
   return (
-    <>
+    <div className="destination">
         <Meta />
-        <h3><span>01</span> PICK YOUR DESTINATION</h3>
-        <div>
-            <Image src={destination.images.png.slice(1)} width='445' height='445' alt={`Image of ${destination.name}`} />
-            <nav>
-                <ul>
+        <h1 className="section-header"><span className='section-header__num'>01</span> PICK YOUR DESTINATION</h1>
+        <div className='dest-container'>
+            <div className='destination__image'>
+                <Image 
+                    src={destination.images.png.slice(1)} 
+                    layout="fill"
+                    objectFit='contain' 
+                    alt={`Image of ${destination.name}`} 
+                />
+            </div>
+            <nav className="destination-picker">
+                <ul className="destination-picker__list">
                     {
                         destinations.map((dest, i) => (
-                            <li onClick={() => setCurrentDest(i)} key={i}>{dest.name}</li>
+                            <li 
+                                onClick={() => setCurrentDest(i)} 
+                                className="destination-picker__list-item"
+                                key={i}
+                            >
+                                {dest.name}
+                            </li>
                         ))
                     }
                 </ul>
             </nav>
-            <div>
-                <h1>{destination.name}</h1>
-                <p>{destination.description}</p>
+            <div className='destination-info'>
+                <div className='destination-info__body'>
+                    <h2 className='destination-info__heading'>{destination.name}</h2>
+                    <p className='destination-info__text'>{destination.description}</p>
+                </div>
+                <ul className='destination-stats'>
+                    <li className='destination-stats__item'>
+                        <h3 className='destination-stats__item-heading'>Avg. Distance</h3>
+                        <p className='destination-stats__item-stat'>{destination.distance}</p>
+                    </li>
+                    <li className='destination-stats__item'>
+                        <h3 className='destination-stats__item-heading'>Est. Travel Time</h3>
+                        <p className='destination-stats__item-stat'>{destination.travel}</p>
+                    </li>
+                </ul>
             </div>
-            <ul>
-                <li>
-                    <div>Avg. Distance</div>
-                    <div>{destination.distance}</div>
-                </li>
-                <li>
-                    <div>Est. Travel Time</div>
-                    <div>{destination.travel}</div>
-                </li>
-            </ul>
         </div>
-    </>
+    </div>
   )
 }
 

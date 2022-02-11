@@ -18,11 +18,18 @@ const Crew: NextPage = () => {
     const crew: CrewTypes = [ ...data.crew ]
     const member: CrewMemb = crew[currentCrew]
   return (
-    <>
+    <div className="crew">
         <Meta />
-        <h2 className="sub-header"><span className="sub-header--num">02</span> MEET YOUR CREW</h2>
+        <h2 className="section-header"><span className="section-header__num">02</span> MEET YOUR CREW</h2>
         <div>
-          <Image src={member.images.png.slice(1)} width={member.images.width} height={member.images.height} alt={`Image of ${member.role} ${member.name}`} />
+          <div>
+            <Image 
+              src={member.images.png.slice(1)} 
+              layout="fill"
+              objectFit='contain' 
+              alt={`Image of ${member.role} ${member.name}`} 
+            />
+          </div>
           <nav>
             <ul>
               {
@@ -40,7 +47,7 @@ const Crew: NextPage = () => {
             <p>{member.bio}</p>
           </div>
         </div>
-    </>
+    </div>
   )
 }
 

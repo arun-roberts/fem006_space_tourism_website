@@ -23,7 +23,6 @@ const Header: () => JSX.Element = () => {
                     alt='Click to open navigation'
                     layout="fill"
                     objectFit='contain'
-                    className="fuckingWork"
                 />
             </div>
         </div>
