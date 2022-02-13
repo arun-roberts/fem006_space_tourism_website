@@ -9,38 +9,33 @@ import Image from 'next/image'
 import AppContext from "../public/context"
 import Meta from '../components/Meta'
 import data from '../public/data.json'
+import ContentPicker from '../components/ContentPicker'
 
 
 const Technology: NextPage = () => {
     const value = useContext(AppContext);
     let { currentTech } = value.state;
-    const { setCurrentTech } = value;
+    const { setCurrentTech }: { setCurrentTech: React.Dispatch<React.SetStateAction<number>>} = value;
     const tech: TechTypes = [ ...data.technology ]
     let displayed: Tech = tech[currentTech]
   return (
-    <div>
+    <div className='tech'>
         <Meta />
-        <h3><span>03</span> SPACE LAUNCH 101</h3>
-        <div>
-          <Image 
-            src={displayed.images.portrait.src.slice(1)} 
-            width={displayed.images.portrait.width} 
-            height={displayed.images.portrait.height}
-            alt={`Image of ${displayed.name}`}
-          />
-          <nav>
-            <ul>
-              {tech.map((t, i) => (
-                <li key={'tech' + i}>
-                  <button onClick={() => setCurrentTech(i)}>{i + 1}</button>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <div>
-            <h5>The Terminology...</h5>
-            <h2>{displayed.name}</h2>
-            <p>{displayed.description}</p>
+        <h2 className="section-header"><span className="section-header__num">03</span> SPACE LAUNCH 101</h2>
+        <div className='tech-container'>
+          <div className='tech__image'>
+            <Image 
+              src={displayed.images.portrait.src.slice(1)} 
+              layout="fill"
+              objectFit='contain' 
+              alt={`Image of ${displayed.name}`}
+            />
+          </div>
+          <ContentPicker data={tech} buttonStyle={1} callback={setCurrentTech} />
+          <div className='tech-info'>
+            <h5 className='tech-info__sub'>The Terminology...</h5>
+            <h2 className='tech-info__name'>{displayed.name}</h2>
+            <p className='tech-info__description'>{displayed.description}</p>
           </div>
         </div>
     </div>

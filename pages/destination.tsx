@@ -9,14 +9,16 @@ import Image from 'next/image'
 import AppContext from '../public/context'
 import Meta from '../components/Meta'
 import data from '../public/data.json'
+import ContentPicker from '../components/ContentPicker'
 
 
 const Destination: NextPage = () => {
     const value = useContext(AppContext);
     let { currentDest } = value.state;
-    const { setCurrentDest } = value
+    const { setCurrentDest }: { setCurrentDest: React.Dispatch<React.SetStateAction<number>>} = value
     const destinations: DestTypes = [ ...data.destinations ]
     let destination: Dest = destinations[currentDest]
+    
   return (
     <div className="destination">
         <Meta />
@@ -30,21 +32,7 @@ const Destination: NextPage = () => {
                     alt={`Image of ${destination.name}`} 
                 />
             </div>
-            <nav className="destination-picker">
-                <ul className="destination-picker__list">
-                    {
-                        destinations.map((dest, i) => (
-                            <li 
-                                onClick={() => setCurrentDest(i)} 
-                                className="destination-picker__list-item"
-                                key={i}
-                            >
-                                {dest.name}
-                            </li>
-                        ))
-                    }
-                </ul>
-            </nav>
+            <ContentPicker data={destinations} buttonStyle={2} callback={setCurrentDest} />            
             <div className='destination-info'>
                 <div className='destination-info__body'>
                     <h2 className='destination-info__heading'>{destination.name}</h2>

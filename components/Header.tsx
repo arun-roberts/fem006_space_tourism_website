@@ -38,22 +38,22 @@ const Header: () => JSX.Element = () => {
                 />
             </div>
             <ul className='nav-list'>
-                <li className='nav-list-item'>
+                <li className='nav-list-item' onClick={() => setIsOpen(false)}>
                     <Link href='/'>
                         <a className='nav-list-item__text'><span className='nav-list-item__text--number'>00</span> Home</a>
                     </Link>
                 </li>
-                <li className='nav-list-item'>
+                <li className='nav-list-item' onClick={() => setIsOpen(false)}>
                     <Link href='/destination'>
                         <a className='nav-list-item__text'><span className='nav-list-item__text--number'>01</span> Destination</a>
                     </Link>
                 </li>
-                <li className='nav-list-item'>
+                <li className='nav-list-item' onClick={() => setIsOpen(false)}>
                     <Link href='/crew'>
                         <a className='nav-list-item__text'><span className='nav-list-item__text--number'>02</span> Crew</a>
                     </Link>
                 </li>
-                <li className='nav-list-item'>
+                <li className='nav-list-item' onClick={() => setIsOpen(false)}>
                     <Link href='/technology'>
                         <a className='nav-list-item__text'><span className='nav-list-item__text--number'>03</span> Technology</a>
                     </Link>

@@ -8,9 +8,6 @@ const Meta = ({title, keywords, description}: {title: string, keywords: string, 
             <meta name="keywords" content={keywords} />
             <meta name='description' content={description} />
             <meta charSet='utf-8' />
-            {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='true' />
-            <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap" rel="stylesheet"></link> */}
             <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png"></link>
         </Head>
     )
