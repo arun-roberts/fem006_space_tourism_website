@@ -38,7 +38,7 @@
 }
 
 .dot__button--active {
-  background-color: white;
+  background-color: #fff;
   border: 1px solid #fff;
   color: #0b0d17;
 }
@@ -127,6 +127,35 @@
   text-transform: uppercase;
   border: none;
   background-color: rgba(255, 255, 255, 0);
+  position: relative;
+  cursor: pointer;
+  padding-bottom: 0.8rem;
+}
+
+.named__button--inactive::before, .named__button--active::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -0.08rem;
+  right: -0.05rem;
+  top: 0;
+  -webkit-transition: all ease-out 250ms;
+  transition: all ease-out 250ms;
+}
+
+.named__button--inactive::before {
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+.named__button--inactive:hover::before {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.named__button--active::before {
+  border-bottom: 2px solid #fff;
 }
 
 * {
@@ -209,7 +238,6 @@ a {
 .nav {
   position: absolute;
   top: 0;
-  right: 0;
   height: 100vh;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
@@ -227,6 +255,7 @@ a {
       -ms-flex-pack: justify;
           justify-content: space-between;
   overflow: hidden;
+  width: 15rem;
 }
 
 .nav__exit {
@@ -234,28 +263,36 @@ a {
   height: 2rem;
   position: relative;
   display: block;
+  margin: 1rem;
 }
 
 .nav--open {
-  max-width: 15rem;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  right: 0;
 }
 
 .nav--closed {
-  max-width: 0;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  right: -15rem;
 }
 
 .nav-list {
-  height: 100%;
+  margin-left: 3rem;
+  height: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .nav-list-item {
@@ -349,9 +386,10 @@ a {
   color: #fff;
   text-transform: uppercase;
   font-size: 32px;
+  position: relative;
   color: #0b0d17;
   font-size: 20px;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -364,6 +402,48 @@ a {
   width: 150px;
   height: 150px;
   border-radius: 50%;
+  z-index: 2;
+  -webkit-transition: all ease-out 150ms;
+  transition: all ease-out 150ms;
+}
+
+.landing__button::before, .landing__button::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform ease 250ms;
+  transition: -webkit-transform ease 250ms;
+  transition: transform ease 250ms;
+  transition: transform ease 250ms, -webkit-transform ease 250ms;
+}
+
+.landing__button::before {
+  background-color: rgba(255, 255, 255, 0.25);
+  -webkit-transform: scale(50%);
+          transform: scale(50%);
+  z-index: 0;
+}
+
+.landing__button:hover::before {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.landing__button::after {
+  background-color: #fff;
+  z-index: 1;
+}
+
+.landing__button:active {
+  width: 148px;
+  height: 148px;
+}
+
+.landing__button:active::before {
+  -webkit-transform: scale(50%);
+          transform: scale(50%);
 }
 
 .dest-container {
