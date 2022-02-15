@@ -5,7 +5,9 @@
 $dark-blue: #0b0d17
 $light-blue: #d0d6f9
 $basic-white: #fff
-$transparent-white: rgba(255, 255, 255, 0.25)
+$half-transparent-white: rgba(255, 255, 255, 0.5)
+$quarter-white: rgba(255, 255, 255, 0.25)
+$nav-white: rgba(255, 255, 255, 0.04)
 
 // ------------FONT GENERALS------------------
 @mixin bellefair-white
@@ -103,7 +105,7 @@ $transparent-white: rgba(255, 255, 255, 0.25)
 
     &--inactive
       background-color: rgba(255, 255, 255, 0)
-      border: 1px solid $transparent-white
+      border: 1px solid $quarter-white
       color: $basic-white
 
 
@@ -112,6 +114,8 @@ $transparent-white: rgba(255, 255, 255, 0.25)
 
   &__list
     counter-reset: numeral-counter
+    display: flex
+    justify-content: space-evenly
 
     &-item
       color: $basic-white
@@ -150,7 +154,7 @@ $transparent-white: rgba(255, 255, 255, 0.25)
 
     &--inactive
       background-color: rgba(255, 255, 255, 0)
-      border: 1px solid $transparent-white
+      border: 1px solid $quarter-white
       color: $basic-white
 
 .named
@@ -182,7 +186,7 @@ $transparent-white: rgba(255, 255, 255, 0.25)
 
     &--inactive::before
       transform: scaleX(0)
-      border-bottom: 2px solid $transparent-white
+      border-bottom: 2px solid $quarter-white
 
     &--inactive:hover::before
         transform: scaleX(1)
@@ -223,7 +227,6 @@ a
   z-index: 1
 
   &__logo
-    // position: absolute
     top: 0
     left: 0
     right: 0
@@ -241,7 +244,6 @@ a
   width: 2rem
   height: 2rem
   position: relative
-  display: block
 
 .sub-header
   @include subheading-one
@@ -253,7 +255,7 @@ a
   position: absolute
   top: 0
   height: 100vh
-  transition: all 0.2s ease-in
+  transition: all 0.3s ease
   background-color: rgba(255, 255, 255, 0.04)
   backdrop-filter: blur(81.5485px)
   display: flex
@@ -266,8 +268,7 @@ a
     width: 2rem
     height: 2rem
     position: relative
-    display: block
-    margin: 1rem
+    margin: 0
 
   &--open
     transform: scaleX(1)
@@ -293,14 +294,16 @@ a
         font-weight: normal
 
         &--number
-          display: inline-block
-          font-weight: bold
-          width: 1rem
+          margin: 0
+          width: 1rem   
+          font-weight: 700
+
           
 .section-header
   @include heading-five
   color: $basic-white
   font-weight: 400
+  display: inline
   
   &__num
     opacity: 0.25
@@ -312,8 +315,7 @@ a
   top: 0
   width: 100%
   height: 100vh
-  background: $dark-blue url('../public/assets/home/background-home-mobile.jpg') no-repeat
-  background-size: cover
+  background: $dark-blue url('../public/assets/home/background-home-mobile.jpg') no-repeat center/100%
   display: flex
   flex-direction: column
   justify-content: space-evenly
@@ -336,7 +338,7 @@ a
   &__button
     @include heading-four
     position: relative
-    color: $dark-blue
+    color: green
     font-size: 20px
     background-color: rgba(255, 255, 255, 0)
     display: flex
@@ -358,51 +360,47 @@ a
       transition: transform ease 250ms
 
     &::before
-      background-color: $transparent-white
+      background-color: $quarter-white
       transform: scale(50%)
-      z-index: 0
+      z-index: -1
     
     &:hover::before
-      transform: scale(1)
+      transform: scale(150%)
+
+    &:active::before
+      width: 97%
+      height: 97%
 
     &::after
       background-color: $basic-white
-      z-index: 1
+      z-index: -1
       
-
-    &:active
-      width: 148px
-      height: 148px
+    &:active::after
+      width: 96%
+      height: 96%
     
-      &::before
-        transform: scale(50%)
-  
-.dest-container
-  display: flex
-  flex-direction: column
-  justify-content: space-evenly
-  align-items: center
-  width: 90%
-
 .destination
   position: absolute
   bottom: 0
   top: 0
   width: 100%
   height: 100vh
-  background: $dark-blue url('../public/assets/destination/background-destination-mobile.jpg') no-repeat
-  background-size: cover
-  display: flex
-  justify-content: center
-  flex-direction: column
-  align-items: center
+  background: $dark-blue url('../public/assets/destination/background-destination-mobile.jpg') no-repeat center/100%
+  padding-top: 6rem
+
+  &-container
+    width: 100%
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
  
   &__image
     width: 14rem
     height: 14rem
     position: relative
-    display: inline-block
-    margin: 2rem
+    margin: 0
 
   &-info
 
@@ -438,21 +436,28 @@ a
   top: 0
   width: 100%
   height: 100vh
-  background: $dark-blue url('../public/assets/crew/background-crew-mobile.jpg') no-repeat
-  background-size: cover
-  display: flex
-  justify-content: center
-  flex-direction: column
-  align-items: center
+  background: $dark-blue url('../public/assets/crew/background-crew-mobile.jpg') no-repeat center/100%
+  padding-top: 6rem
+
+  &-container
+    width: 100%
+    position: relative
+    display: flex
+    justify-content: center
+    flex-direction: column
+    align-items: center
 
   &__image
     width: 14rem
     height: 14rem
     position: relative
-    display: inline-block
-    margin: 2rem auto
+    margin: 0
+
+  &__picker
+    width: 100%
 
   &-info
+    text-align: center
 
     &__role
       @include heading-four
@@ -471,21 +476,24 @@ a
   top: 0
   width: 100%
   height: 100vh
-  background: $dark-blue url('../public/assets/technology/background-technology-mobile.jpg') no-repeat
-  background-size: cover
-  display: flex
-  justify-content: center
-  flex-direction: column
-  align-items: center
+  background: $dark-blue url('../public/assets/technology/background-technology-mobile.jpg') no-repeat center/100%
+  padding-top: 6rem
+
+  &-container
+    width: 100%
+    position: relative
+    display: flex
+    justify-content: center
+    flex-direction: column
+    align-items: center
 
   &__image
-    width: 14rem
-    height: 14rem
+    height: 15rem
+    width: 102vw
     position: relative
-    display: inline-block
-    margin: 2rem
 
   &-info
+    text-align: center
 
     &__sub
       @include nav-text
@@ -497,3 +505,81 @@ a
     &__description
       @include body-text
       color: $light-blue
+
+@media screen and (min-width: 800px)
+  .section-header
+    display: block
+    width: 90%
+
+  .header__hamburger
+    display: none
+
+  .nav
+    top: 0
+    right: 0
+    height: 6rem
+    background-color: rgba(255, 255, 255, 0.04)
+    backdrop-filter: blur(81.5485px)
+    display: flex
+    flex-direction: row
+    
+    width: 30rem
+  
+    &--closed
+      transform: none
+      right: 0
+      width: 30rem
+
+    &__exit
+      display: none
+
+    &-list
+      flex-direction: row
+      justify-content: space-evenly
+      align-items: center
+      width: 80%
+      height: 100%
+
+      &-item
+        height: 100%
+        position: relative
+        display: flex
+        align-items: center
+
+        &::before
+          position: absolute
+          content: ''
+          bottom: 0
+          width: 100%
+          border-bottom: 2px solid $half-transparent-white
+
+        &__text--number
+          display: none
+
+  .landing
+    background: $dark-blue url('../public/assets/home/background-home-tablet.jpg') no-repeat center/100%
+  
+  .destination
+    background: $dark-blue url('../public/assets/destination/background-destination-tablet.jpg') no-repeat center/100%
+    padding-top: 6rem
+
+  .crew
+    background: $dark-blue url('../public/assets/crew/background-crew-tablet.jpg') no-repeat center/100%
+    padding-top: 6rem
+
+    &__image
+      order: 3
+    
+    &__picker
+      order: 2
+      
+    &-info
+      order: 1
+
+  .tech
+    background: $dark-blue url('../public/assets/technology/background-technology-tablet.jpg') no-repeat center/100%
+    padding-top: 6rem
+
+    &__image
+      height: 25rem
+      width: 102vw

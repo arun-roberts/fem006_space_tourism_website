@@ -51,6 +51,12 @@
 
 .numbered__list {
   counter-reset: numeral-counter;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .numbered__list-item {
@@ -220,7 +226,6 @@ a {
   width: 2rem;
   height: 2rem;
   position: relative;
-  display: block;
 }
 
 .sub-header {
@@ -239,8 +244,8 @@ a {
   position: absolute;
   top: 0;
   height: 100vh;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   background-color: rgba(255, 255, 255, 0.04);
   -webkit-backdrop-filter: blur(81.5485px);
           backdrop-filter: blur(81.5485px);
@@ -262,8 +267,7 @@ a {
   width: 2rem;
   height: 2rem;
   position: relative;
-  display: block;
-  margin: 1rem;
+  margin: 0;
 }
 
 .nav--open {
@@ -310,9 +314,9 @@ a {
 }
 
 .nav-list-item__text--number {
-  display: inline-block;
-  font-weight: bold;
+  margin: 0;
   width: 1rem;
+  font-weight: 700;
 }
 
 .section-header {
@@ -323,6 +327,7 @@ a {
   letter-spacing: 4.75px;
   color: #fff;
   font-weight: 400;
+  display: inline;
 }
 
 .section-header__num {
@@ -336,8 +341,7 @@ a {
   top: 0;
   width: 100%;
   height: 100vh;
-  background: #0b0d17 url("../public/assets/home/background-home-mobile.jpg") no-repeat;
-  background-size: cover;
+  background: #0b0d17 url("../public/assets/home/background-home-mobile.jpg") no-repeat center/100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -387,7 +391,7 @@ a {
   text-transform: uppercase;
   font-size: 32px;
   position: relative;
-  color: #0b0d17;
+  color: green;
   font-size: 20px;
   background-color: rgba(255, 255, 255, 0);
   display: -webkit-box;
@@ -423,44 +427,27 @@ a {
   background-color: rgba(255, 255, 255, 0.25);
   -webkit-transform: scale(50%);
           transform: scale(50%);
-  z-index: 0;
+  z-index: -1;
 }
 
 .landing__button:hover::before {
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  -webkit-transform: scale(150%);
+          transform: scale(150%);
+}
+
+.landing__button:active::before {
+  width: 97%;
+  height: 97%;
 }
 
 .landing__button::after {
   background-color: #fff;
-  z-index: 1;
+  z-index: -1;
 }
 
-.landing__button:active {
-  width: 148px;
-  height: 148px;
-}
-
-.landing__button:active::before {
-  -webkit-transform: scale(50%);
-          transform: scale(50%);
-}
-
-.dest-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 90%;
+.landing__button:active::after {
+  width: 96%;
+  height: 96%;
 }
 
 .destination {
@@ -469,18 +456,23 @@ a {
   top: 0;
   width: 100%;
   height: 100vh;
-  background: #0b0d17 url("../public/assets/destination/background-destination-mobile.jpg") no-repeat;
-  background-size: cover;
+  background: #0b0d17 url("../public/assets/destination/background-destination-mobile.jpg") no-repeat center/100%;
+  padding-top: 6rem;
+}
+
+.destination-container {
+  width: 100%;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -490,8 +482,7 @@ a {
   width: 14rem;
   height: 14rem;
   position: relative;
-  display: inline-block;
-  margin: 2rem;
+  margin: 0;
 }
 
 .destination-info__heading {
@@ -552,8 +543,13 @@ a {
   top: 0;
   width: 100%;
   height: 100vh;
-  background: #0b0d17 url("../public/assets/crew/background-crew-mobile.jpg") no-repeat;
-  background-size: cover;
+  background: #0b0d17 url("../public/assets/crew/background-crew-mobile.jpg") no-repeat center/100%;
+  padding-top: 6rem;
+}
+
+.crew-container {
+  width: 100%;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -573,8 +569,15 @@ a {
   width: 14rem;
   height: 14rem;
   position: relative;
-  display: inline-block;
-  margin: 2rem auto;
+  margin: 0;
+}
+
+.crew__picker {
+  width: 100%;
+}
+
+.crew-info {
+  text-align: center;
 }
 
 .crew-info__role {
@@ -606,8 +609,13 @@ a {
   top: 0;
   width: 100%;
   height: 100vh;
-  background: #0b0d17 url("../public/assets/technology/background-technology-mobile.jpg") no-repeat;
-  background-size: cover;
+  background: #0b0d17 url("../public/assets/technology/background-technology-mobile.jpg") no-repeat center/100%;
+  padding-top: 6rem;
+}
+
+.tech-container {
+  width: 100%;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -624,11 +632,13 @@ a {
 }
 
 .tech__image {
-  width: 14rem;
-  height: 14rem;
+  height: 15rem;
+  width: 102vw;
   position: relative;
-  display: inline-block;
-  margin: 2rem;
+}
+
+.tech-info {
+  text-align: center;
 }
 
 .tech-info__sub {
@@ -654,5 +664,108 @@ a {
   font-size: 18px;
   line-height: 32px;
   color: #d0d6f9;
+}
+
+@media screen and (min-width: 800px) {
+  .section-header {
+    display: block;
+    width: 90%;
+  }
+  .header__hamburger {
+    display: none;
+  }
+  .nav {
+    top: 0;
+    right: 0;
+    height: 6rem;
+    background-color: rgba(255, 255, 255, 0.04);
+    -webkit-backdrop-filter: blur(81.5485px);
+            backdrop-filter: blur(81.5485px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 30rem;
+  }
+  .nav--closed {
+    -webkit-transform: none;
+            transform: none;
+    right: 0;
+    width: 30rem;
+  }
+  .nav__exit {
+    display: none;
+  }
+  .nav-list {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 80%;
+    height: 100%;
+  }
+  .nav-list-item {
+    height: 100%;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .nav-list-item::before {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    width: 100%;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  }
+  .nav-list-item__text--number {
+    display: none;
+  }
+  .landing {
+    background: #0b0d17 url("../public/assets/home/background-home-tablet.jpg") no-repeat center/100%;
+  }
+  .destination {
+    background: #0b0d17 url("../public/assets/destination/background-destination-tablet.jpg") no-repeat center/100%;
+    padding-top: 6rem;
+  }
+  .crew {
+    background: #0b0d17 url("../public/assets/crew/background-crew-tablet.jpg") no-repeat center/100%;
+    padding-top: 6rem;
+  }
+  .crew__image {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .crew__picker {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .crew-info {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .tech {
+    background: #0b0d17 url("../public/assets/technology/background-technology-tablet.jpg") no-repeat center/100%;
+    padding-top: 6rem;
+  }
+  .tech__image {
+    height: 25rem;
+    width: 102vw;
+  }
 }
 /*# sourceMappingURL=globals.css.map */

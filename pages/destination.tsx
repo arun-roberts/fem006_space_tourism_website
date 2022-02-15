@@ -22,8 +22,8 @@ const Destination: NextPage = () => {
   return (
     <div className="destination">
         <Meta />
-        <h1 className="section-header"><span className='section-header__num'>01</span> PICK YOUR DESTINATION</h1>
-        <div className='dest-container'>
+        <div className='destination-container'>
+            <h1 className="section-header"><span className='section-header__num'>01</span> PICK YOUR DESTINATION</h1>
             <div className='destination__image'>
                 <Image 
                     src={destination.images.png.slice(1)} 

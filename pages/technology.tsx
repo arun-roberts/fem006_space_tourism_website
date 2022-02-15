@@ -14,24 +14,30 @@ import ContentPicker from '../components/ContentPicker'
 
 const Technology: NextPage = () => {
     const value = useContext(AppContext);
-    let { currentTech } = value.state;
+    let { currentTech, isDesktop } = value.state;
     const { setCurrentTech }: { setCurrentTech: React.Dispatch<React.SetStateAction<number>>} = value;
     const tech: TechTypes = [ ...data.technology ]
     let displayed: Tech = tech[currentTech]
   return (
     <div className='tech'>
         <Meta />
-        <h2 className="section-header"><span className="section-header__num">03</span> SPACE LAUNCH 101</h2>
         <div className='tech-container'>
+          <h2 className="section-header">
+            <span className="section-header__num">
+              03
+            </span> SPACE LAUNCH 101
+          </h2>
           <div className='tech__image'>
             <Image 
-              src={displayed.images.portrait.src.slice(1)} 
+              src={isDesktop ? displayed.images.portrait.src.slice(1) : displayed.images.landscape.src.slice(1)} 
               layout="fill"
               objectFit='contain' 
               alt={`Image of ${displayed.name}`}
             />
           </div>
-          <ContentPicker data={tech} buttonStyle={1} callback={setCurrentTech} />
+          <div className='tech__picker'>
+            <ContentPicker data={tech} buttonStyle={1} callback={setCurrentTech} />
+          </div>
           <div className='tech-info'>
             <h5 className='tech-info__sub'>The Terminology...</h5>
             <h2 className='tech-info__name'>{displayed.name}</h2>
