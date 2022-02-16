@@ -32,7 +32,9 @@ const Destination: NextPage = () => {
                     alt={`Image of ${destination.name}`} 
                 />
             </div>
-            <ContentPicker data={destinations} buttonStyle={2} callback={setCurrentDest} />            
+            <div className='destination-picker'>
+                <ContentPicker data={destinations} buttonStyle={2} callback={setCurrentDest} />    
+            </div>
             <div className='destination-info'>
                 <div className='destination-info__body'>
                     <h2 className='destination-info__heading'>{destination.name}</h2>

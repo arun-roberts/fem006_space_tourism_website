@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 const Header: () => JSX.Element = () => {
     const [isOpen, setIsOpen ] = useState<boolean>(false)
+    const [ isActive, setIsActive ] = useState<string>('home')
 
   return (
     <header className="header">
@@ -16,7 +17,8 @@ const Header: () => JSX.Element = () => {
                     objectFit='contain'
                 />
             </div>
-            <div className="header__hamburger">
+            {!isOpen &&
+                (<div className="header__hamburger">
                 <Image 
                     onClick={() => setIsOpen(true)} 
                     src='/assets/shared/icon-hamburger.svg'
@@ -24,8 +26,9 @@ const Header: () => JSX.Element = () => {
                     layout="fill"
                     objectFit='contain'
                 />
-            </div>
+            </div>)}
         </div>
+        <div className="header__decorative-line"></div>
         <nav className={`nav ${isOpen ? 'nav--open' : 'nav--closed'}`}>
             <div className="nav__exit">
                 <Image 
@@ -34,28 +37,31 @@ const Header: () => JSX.Element = () => {
                     alt='Click to close navigation'
                     layout="fill"
                     objectFit='contain'
-                    className="fuckingWork"
                 />
             </div>
             <ul className='nav-list'>
-                <li className='nav-list-item' onClick={() => setIsOpen(false)}>
+                <li className={`nav-list-item${isActive === 'home' ? ' nav-list-item--active' : ''}`} onClick={() => setIsOpen(false)}>
                     <Link href='/'>
-                        <a className='nav-list-item__text'><span className='nav-list-item__text--number'>00</span> Home</a>
+                        <a className='nav-list-item__text'
+                        onClick={() => setIsActive('home')}><span className='nav-list-item__text--number'>00</span> Home</a>
                     </Link>
                 </li>
-                <li className='nav-list-item' onClick={() => setIsOpen(false)}>
+                <li className={`nav-list-item${isActive === 'dest' ? ' nav-list-item--active' : ''}`} onClick={() => setIsOpen(false)}>
                     <Link href='/destination'>
-                        <a className='nav-list-item__text'><span className='nav-list-item__text--number'>01</span> Destination</a>
+                        <a className='nav-list-item__text'
+                        onClick={() => setIsActive('dest')}><span className='nav-list-item__text--number'>01</span> Destination</a>
                     </Link>
                 </li>
-                <li className='nav-list-item' onClick={() => setIsOpen(false)}>
+                <li className={`nav-list-item${isActive === 'crew' ? ' nav-list-item--active' : ''}`} onClick={() => setIsOpen(false)}>
                     <Link href='/crew'>
-                        <a className='nav-list-item__text'><span className='nav-list-item__text--number'>02</span> Crew</a>
+                        <a className='nav-list-item__text'
+                        onClick={() => setIsActive('crew')}><span className='nav-list-item__text--number'>02</span> Crew</a>
                     </Link>
                 </li>
-                <li className='nav-list-item' onClick={() => setIsOpen(false)}>
+                <li className={`nav-list-item${isActive === 'tech' ? ' nav-list-item--active' : ''}`} onClick={() => setIsOpen(false)}>
                     <Link href='/technology'>
-                        <a className='nav-list-item__text'><span className='nav-list-item__text--number'>03</span> Technology</a>
+                        <a className='nav-list-item__text'
+                        onClick={() => setIsActive('tech')}><span className='nav-list-item__text--number'>03</span> Technology</a>
                     </Link>
                 </li>
 
