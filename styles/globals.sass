@@ -1,5 +1,5 @@
 // ---------FONT IMPORTS--------------
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Bellefair&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@200&family=Bellefair&display=swap')
 
 // -----------COLOUR VARIABLES--------------
 $dark-blue: #0b0d17
@@ -61,9 +61,9 @@ $nav-white: rgba(255, 255, 255, 0.04)
 
 @mixin nav-text
   @include barlow-white
-  font-size: 16px
-  letter-spacing: 2.7px
-  line-height: 19px
+  font-size: 1rem
+  letter-spacing: 0.16875rem
+  line-height: 1.1875rem
   text-transform: uppercase
   
 @mixin body-text
@@ -222,9 +222,9 @@ a
 .header
   width: 100%
   height: 5rem
-  padding: 1rem
+  padding: 1.5rem
   position: absolute
-  z-index: 1
+  z-index: 2
 
   &__logo
     top: 0
@@ -235,14 +235,15 @@ a
     align-items: center
   
   &__hamburger
-    width: 2rem
-    height: 2rem
+    width: 1.5rem
+    height: 1.313rem
     position: relative
     display: block
+    cursor: pointer
 
 .logo
-  width: 2rem
-  height: 2rem
+  width: 2.5rem
+  height: 2.5rem
   position: relative
 
 .sub-header
@@ -262,13 +263,14 @@ a
   flex-direction: row-reverse
   justify-content: space-between
   overflow: hidden
-  width: 15rem
+  width: 15.875rem
 
   &__exit
-    width: 2rem
-    height: 2rem
+    width: 1.193125rem
+    height: 1.193125rem
     position: relative
-    margin: 0
+    margin: 2.121875rem 1.653125rem
+    cursor: pointer
 
   &--open
     transform: scaleX(1)
@@ -279,23 +281,23 @@ a
     right: -15rem
 
   &-list
-    margin-left: 3rem
-    height: 50%
+    margin: 7.375rem 0 0 2rem
+    height: 10.75rem
     display: flex
-    align-self: center
     flex-direction: column
-    justify-content: space-evenly
+    justify-content: space-between
 
     &-item
       overflow: hidden
 
       &__text
-        @include subheading-two
-        font-weight: normal
+        @include nav-text
+        font-weight: 200
 
         &--number
-          margin: 0
-          width: 1rem   
+          margin-right: 0.5625rem
+          display: inline-block
+          width: 1.25rem  
           font-weight: 700
 
           
@@ -315,45 +317,60 @@ a
   top: 0
   width: 100%
   height: 100vh
-  background: $dark-blue url('../public/assets/home/background-home-mobile.jpg') no-repeat center/100%
+  background: $dark-blue url('../public/assets/home/background-home-mobile.jpg') no-repeat
+  background-size: cover
   display: flex
   flex-direction: column
-  justify-content: space-evenly
+  justify-content: space-between
   align-items: center
 
   &-container
     display: flex
     flex-direction: column
     align-items: center
+    justify-content: space-between
     text-align: center
+    width: 20.4375rem
+    height: 17.25rem
+    margin: 7rem 1.25rem 0
+    margin-top: calc(100vh * 0.1679)
 
   &__heading-five
     @include heading-five
-    font-size: 16px
+    font-size: 1rem
+    letter-spacing: 0.16875rem
+    font-weight: 400
     
   &__heading-one
     @include heading-one
-    font-size: 80px
+    font-size: 5rem
+    line-height: 6.25rem
+    font-weight: 400
     
   &__text-body
-    @include body-text
-    font-size: 15px
+    font-family: 'Barlow', sans-serif
+    font-size: 0.9375rem
+    font-weight: 200
     color: $light-blue
+    line-height: 1.5625rem
+    height: 7.8125rem
     
 
   &__button
     @include heading-four
     position: relative
     color: $dark-blue
-    font-size: 20px
+    font-size: 1.25rem
     background-color: rgba(255, 255, 255, 0)
     display: flex
     justify-content: center
     align-items: center
-    width: 150px
-    height: 150px
+    width: 9.375rem
+    height: 9.375rem
+    margin-bottom: 3rem // Fallback
+    margin-bottom: calc(100vh * 0.071964)
     border-radius: 50%
-    z-index: 2
+    z-index: 1
     transition: all ease-out 150ms
 
     &::before,
@@ -624,6 +641,7 @@ a
       width: 40rem
       background-color: $quarter-white
       left: 15rem
+      z-index: 3
 
   .logo
     width: 6rem
@@ -736,3 +754,4 @@ a
 @supports (-moz-appearance:none) 
   .nav
     background-color: rgba(11, 13, 23, 0.9)
+    z-index: 4
