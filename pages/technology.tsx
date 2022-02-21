@@ -2,9 +2,10 @@
 import type { NextPage } from 'next'
 import type { TechTypes, Tech } from '../lib/types'
 // REACT IMPORTS
-import { useContext } from "react"
+import { useContext, useEffect, useMemo } from "react"
 // NEXT IMPORTS
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 import AppContext from "../public/context"
 import Meta from '../components/Meta'
@@ -16,8 +17,21 @@ const Technology: NextPage = () => {
     const value = useContext(AppContext);
     let { currentTech, isDesktop } = value.state;
     const { setCurrentTech }: { setCurrentTech: React.Dispatch<React.SetStateAction<number>>} = value;
-    const tech: TechTypes = [ ...data.technology ]
+    const tech: TechTypes = useMemo(() => [ ...data.technology ], [ ...data.technology ])
     let displayed: Tech = tech[currentTech]
+    const router = useRouter();
+    useEffect(() => {
+        const onHashChangeStart = (url: string) => {
+            let hash = url.slice(url.indexOf('#') + 1).replace('_', ' ')
+            setCurrentTech(tech.findIndex(e => e.name == hash))
+        };
+
+        router.events.on("hashChangeStart", onHashChangeStart);
+
+        return () => {
+            router.events.off("hashChangeStart", onHashChangeStart);
+        };
+    }, [router.events, setCurrentTech, tech]);
   return (
     <div className='tech'>
         <Meta />
@@ -36,7 +50,7 @@ const Technology: NextPage = () => {
             />
           </div>
           <div className='tech__picker'>
-            <ContentPicker data={tech} buttonStyle={1} callback={setCurrentTech} />
+            <ContentPicker data={tech} buttonStyle={1} current={currentTech} />
           </div>
           <div className='tech-info'>
             <h5 className='tech-info__sub'>The Terminology...</h5>

@@ -2,9 +2,10 @@
 import type { NextPage } from 'next'
 import type { CrewTypes, CrewMemb } from '../lib/types'
 // REACT IMPORTS
-import { useContext } from 'react'
+import { useContext, useEffect, useMemo } from 'react'
 // NEXT IMPORTS
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 import AppContext from '../public/context'
 import Meta from '../components/Meta'
@@ -16,8 +17,22 @@ const Crew: NextPage = () => {
     const value = useContext(AppContext)
     let { currentCrew } = value.state
     const { setCurrentCrew }: { setCurrentCrew: React.Dispatch<React.SetStateAction<number>>} = value
-    const crew: CrewTypes = [ ...data.crew ]
+    const crew: CrewTypes = useMemo(() => [ ...data.crew ], [ ...data.crew ])
     const member: CrewMemb = crew[currentCrew]
+    const router = useRouter();
+    useEffect(() => {
+        const onHashChangeStart = (url: string) => {
+            let hash: string = url.slice(url.indexOf('#') + 1).replace('_', ' ')
+            let i: number = crew.findIndex(e => e.name == hash)
+            setCurrentCrew(i == -1 ? 0 : i)
+        };
+
+        router.events.on("hashChangeStart", onHashChangeStart);
+
+        return () => {
+            router.events.off("hashChangeStart", onHashChangeStart);
+        };
+    }, [router.events, setCurrentCrew, crew]);
   return (
     <div className="crew">
         <Meta />
@@ -32,7 +47,7 @@ const Crew: NextPage = () => {
             />
           </div>
           <div className="crew__picker">
-            <ContentPicker data={crew} buttonStyle={0} callback={setCurrentCrew}/>
+            <ContentPicker data={crew} buttonStyle={0} current={currentCrew}/>
           </div>
           <div className='crew-info'>
             <h3 className='crew-info__role'>{member.role}</h3>

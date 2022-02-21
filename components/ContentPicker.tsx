@@ -1,8 +1,7 @@
-import { useState } from 'react'
+import { useState } from 'react'  
+import Link from 'next/link'
 
-const ContentPicker = ({data, buttonStyle, callback}: {data: any[], buttonStyle: number, callback: React.Dispatch<React.SetStateAction<number>>}) => {
-    const [ isActive, setIsActive ] = useState<boolean[]>(data.map((e, i) => i == 0 ? true : false))
-    const falseState: boolean[] = data.map(e => false)
+const ContentPicker = ({data, buttonStyle, current}: {data: any[], buttonStyle: number, current: number}) => {
     const buttonStyles: string[] = [ 'dot', 'numbered', 'named']
     const button = buttonStyles[buttonStyle] || buttonStyles[0]
     return (
@@ -14,17 +13,13 @@ const ContentPicker = ({data, buttonStyle, callback}: {data: any[], buttonStyle:
                     key={i}
                     className={button + '__list-item'}
                   >
-                    <button 
-                      onClick={() => {
-                          callback(i)
-                          const newActive = [ ...falseState ]
-                          newActive[i] = true
-                          setIsActive(newActive)
-                    }}
-                      className={`${button}__button ${button + (isActive[i] ? '__button--active ' : '__button--inactive')}`}
-                    >
-                      {e.name}
-                    </button>
+                    <Link href={`#${e.name.replace(' ', '_')}`}>
+                      <a 
+                        className={`${button}__button ${button + (i == current ? '__button--active ' : '__button--inactive')}`}
+                      >
+                        {e.name}
+                      </a>
+                    </Link>
                   </li>
                 )
               }

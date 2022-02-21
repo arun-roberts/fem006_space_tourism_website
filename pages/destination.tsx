@@ -2,9 +2,10 @@
 import type { NextPage } from 'next'
 import type { DestTypes, Dest } from '../lib/types'
 // REACT IMPORTS
-import { useContext } from 'react'
+import { useContext, useEffect, useMemo } from 'react'
 // NEXT IMPORTS
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 import AppContext from '../public/context'
 import Meta from '../components/Meta'
@@ -16,8 +17,21 @@ const Destination: NextPage = () => {
     const value = useContext(AppContext);
     let { currentDest } = value.state;
     const { setCurrentDest }: { setCurrentDest: React.Dispatch<React.SetStateAction<number>>} = value
-    const destinations: DestTypes = [ ...data.destinations ]
+    const destinations: DestTypes = useMemo(() =>[ ...data.destinations ], [ ...data.destinations ])
     let destination: Dest = destinations[currentDest]
+    const router = useRouter();
+    useEffect(() => {
+        const onHashChangeStart = (url: string) => {
+            let hash = url.slice(url.indexOf('#') + 1)
+            setCurrentDest(destinations.findIndex(e => e.name == hash))
+        };
+
+        router.events.on("hashChangeStart", onHashChangeStart);
+
+        return () => {
+            router.events.off("hashChangeStart", onHashChangeStart);
+        };
+    }, [router.events, setCurrentDest, destinations]);
     
   return (
     <div className="destination">
@@ -33,7 +47,7 @@ const Destination: NextPage = () => {
                 />
             </div>
             <div className='destination-picker'>
-                <ContentPicker data={destinations} buttonStyle={2} callback={setCurrentDest} />    
+                <ContentPicker data={destinations} current={currentDest} buttonStyle={2} />    
             </div>
             <div className='destination-info'>
                 <div className='destination-info__body'>
