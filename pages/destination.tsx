@@ -22,8 +22,9 @@ const Destination: NextPage = () => {
     const router = useRouter();
     useEffect(() => {
         const onHashChangeStart = (url: string) => {
-            let hash = url.slice(url.indexOf('#') + 1)
-            setCurrentDest(destinations.findIndex(e => e.name == hash))
+            let hash: string = url.slice(url.indexOf('#') + 1)
+            let i: number = destinations.findIndex(e => e.name == hash)
+            setCurrentDest(i == -1 ? 0 : i)
         };
 
         router.events.on("hashChangeStart", onHashChangeStart);
@@ -37,7 +38,7 @@ const Destination: NextPage = () => {
     <div className="destination">
         <Meta />
         <div className='destination-container'>
-            <h1 className="section-header"><span className='section-header__num'>01</span> PICK YOUR DESTINATION</h1>
+            <h1 className="section-header"><span className='section-header__num'>01</span>PICK YOUR DESTINATION</h1>
             <div className='destination__image'>
                 <Image 
                     src={destination.images.png.slice(1)} 

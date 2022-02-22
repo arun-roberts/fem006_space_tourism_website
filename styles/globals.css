@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@200&family=Bellefair&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;400;600;700&family=Barlow:wght@200&family=Bellefair&display=swap");
 .dot {
   width: 60%;
   margin: 0 auto;
@@ -112,30 +112,36 @@
 }
 
 .named {
-  width: 100%;
+  width: 63.33%;
+  margin: 0 auto;
 }
 
 .named__list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .named__button {
   font-family: 'Barlow Condensed', sans-serif;
   color: #fff;
-  font-size: 14px;
-  letter-spacing: 2.3625px;
-  line-height: 17px;
+  font-size: 0.875rem;
+  letter-spacing: 0.147656rem;
+  line-height: 1.0625rem;
   text-transform: uppercase;
+  font-weight: 200;
   border: none;
   background-color: rgba(255, 255, 255, 0);
   position: relative;
   cursor: pointer;
-  padding-bottom: 0.8rem;
+  padding-bottom: 0.6875rem;
+}
+
+.named__button--inactive {
+  color: #d0d6f9;
 }
 
 .named__button--inactive::before, .named__button--active::before {
@@ -152,7 +158,7 @@
 .named__button--inactive::before {
   -webkit-transform: scaleX(0);
           transform: scaleX(0);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.25);
 }
 
 .named__button--inactive:hover::before {
@@ -161,7 +167,7 @@
 }
 
 .named__button--active::before {
-  border-bottom: 2px solid #fff;
+  border-bottom: 3px solid #fff;
 }
 
 * {
@@ -233,8 +239,8 @@ a {
   font-family: 'Bellefair', serif;
   color: #fff;
   text-transform: uppercase;
-  font-size: 28px;
-  line-height: 32px;
+  font-size: 1.75rem;
+  line-height: 2rem;
 }
 
 .sub-header--num {
@@ -322,16 +328,20 @@ a {
 
 .section-header {
   font-family: 'Barlow Condensed', sans-serif;
-  color: #d0d6f9;
-  text-transform: uppercase;
-  font-size: 28px;
-  letter-spacing: 4.75px;
   color: #fff;
+  font-size: 1rem;
+  letter-spacing: 0.16875rem;
+  line-height: 1.1875rem;
+  text-transform: uppercase;
   font-weight: 400;
   display: inline;
+  margin-bottom: 2rem;
 }
 
 .section-header__num {
+  display: inline-block;
+  width: 0.9375rem;
+  margin-right: 1.125rem;
   opacity: 0.25;
   font-weight: 700;
 }
@@ -403,11 +413,11 @@ a {
 }
 
 .landing__text-body {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'barlow', sans-serif;
   font-size: 0.9375rem;
-  font-weight: 200;
-  color: #d0d6f9;
   line-height: 1.5625rem;
+  color: #d0d6f9;
+  font-weight: 200;
   height: 7.8125rem;
 }
 
@@ -484,12 +494,16 @@ a {
   top: 0;
   width: 100%;
   height: 100vh;
-  background: #0b0d17 url("../public/assets/destination/background-destination-mobile.jpg") no-repeat center/100%;
-  padding-top: 6rem;
+  background: rgba(11, 13, 23, 0.1) url("../public/assets/destination/background-destination-mobile.jpg") no-repeat;
+  background-blend-mode: overlay;
+  background-size: cover;
+  padding-top: 5.5rem;
+  padding-bottom: 3.625rem;
 }
 
 .destination-container {
   width: 100%;
+  height: 100%;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -498,23 +512,27 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
 .destination__image {
-  width: 14rem;
-  height: 14rem;
+  width: 10.625rem;
+  height: 10.625rem;
   position: relative;
-  margin: 0;
+  margin: 0 auto 1.625rem;
+}
+
+.destination-picker {
+  width: 100%;
 }
 
 .destination-info__body {
+  margin: 1.9375rem auto 0;
+  width: 87.2%;
   text-align: center;
+  border-bottom: 1px solid #383B4B;
 }
 
 .destination-info__heading {
@@ -522,14 +540,17 @@ a {
   color: #fff;
   text-transform: uppercase;
   font-size: 100px;
+  font-size: 3.5rem;
+  line-height: 4.0625rem;
 }
 
 .destination-info__text {
-  font-family: 'Barlow Condensed', sans-serif;
-  color: #fff;
-  font-size: 18px;
-  line-height: 32px;
+  font-family: 'barlow', sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.5625rem;
   color: #d0d6f9;
+  width: 95%;
+  margin: 0 auto 2rem;
 }
 
 .destination-stats {
@@ -547,24 +568,27 @@ a {
 
 .destination-stats__item {
   text-align: center;
+  margin-top: 2rem;
 }
 
 .destination-stats__item-heading {
   font-family: 'Barlow Condensed', sans-serif;
   color: #fff;
-  font-size: 14px;
-  letter-spacing: 2.3625px;
-  line-height: 17px;
+  font-size: 0.875rem;
+  letter-spacing: 0.147656rem;
+  line-height: 1.0625rem;
   text-transform: uppercase;
   color: #d0d6f9;
+  font-weight: 200;
+  margin-bottom: 0.75rem;
 }
 
 .destination-stats__item-stat {
   font-family: 'Bellefair', serif;
   color: #fff;
   text-transform: uppercase;
-  font-size: 28px;
-  line-height: 32px;
+  font-size: 1.75rem;
+  line-height: 2rem;
 }
 
 .crew {
@@ -573,19 +597,20 @@ a {
   top: 0;
   width: 100%;
   height: 100vh;
-  background: #0b0d17 url("../public/assets/crew/background-crew-mobile.jpg") no-repeat center/100%;
-  padding-top: 6rem;
+  background: rgba(11, 13, 23, 0.6) url("../public/assets/crew/background-crew-mobile.jpg") no-repeat;
+  background-blend-mode: darken;
+  background-size: cover;
+  padding-top: 5.5rem;
+  padding-bottom: 3.625rem;
 }
 
 .crew-container {
   width: 100%;
+  height: 100%;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -626,10 +651,10 @@ a {
 }
 
 .crew-info__bio {
-  font-family: 'Barlow Condensed', sans-serif;
-  color: #fff;
-  font-size: 18px;
-  line-height: 32px;
+  font-family: 'barlow', sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.5625rem;
+  color: #d0d6f9;
   color: #d0d6f9;
 }
 
@@ -639,8 +664,10 @@ a {
   top: 0;
   width: 100%;
   height: 100vh;
-  background: #0b0d17 url("../public/assets/technology/background-technology-mobile.jpg") no-repeat center/100%;
-  padding-top: 6rem;
+  background: #0b0d17 url("../public/assets/technology/background-technology-mobile.jpg") no-repeat;
+  background-size: cover;
+  padding-top: 5.5rem;
+  padding-bottom: 3.625rem;
 }
 
 .tech-container {
@@ -689,10 +716,10 @@ a {
 }
 
 .tech-info__description {
-  font-family: 'Barlow Condensed', sans-serif;
-  color: #fff;
-  font-size: 18px;
-  line-height: 32px;
+  font-family: 'barlow', sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.5625rem;
+  color: #d0d6f9;
   color: #d0d6f9;
 }
 

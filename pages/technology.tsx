@@ -22,8 +22,9 @@ const Technology: NextPage = () => {
     const router = useRouter();
     useEffect(() => {
         const onHashChangeStart = (url: string) => {
-            let hash = url.slice(url.indexOf('#') + 1).replace('_', ' ')
-            setCurrentTech(tech.findIndex(e => e.name == hash))
+            let hash: string = url.slice(url.indexOf('#') + 1).replace('_', ' ')
+            let i: number = tech.findIndex(e => e.name == hash)
+            setCurrentTech(i == -1 ? 0 : i)
         };
 
         router.events.on("hashChangeStart", onHashChangeStart);
