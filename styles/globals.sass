@@ -14,6 +14,7 @@ $nav-white: rgba(255, 255, 255, 0.04)
   font-family: 'Bellefair', serif
   color: $basic-white
   text-transform: uppercase
+  font-weight: 400
 
 @mixin barlow-white
   font-family: 'Barlow Condensed', sans-serif
@@ -23,184 +24,6 @@ $nav-white: rgba(255, 255, 255, 0.04)
   font-family: 'Barlow Condensed', sans-serif
   color: $light-blue
   text-transform: uppercase
-
-// -------------FONT SPECIFICS-----------------
-@mixin heading-one 
-  @include bellefair-white
-  font-size: 150px
-  line-height: 172px
-
-@mixin heading-two
-  @include bellefair-white
-  font-size: 100px
-
-@mixin heading-three
-  @include bellefair-white
-  font-size: 56px
-
-@mixin heading-four
-  @include bellefair-white
-  font-size: 32px
-
-@mixin heading-five
-  @include barlow-blue
-  font-size: 28px
-  letter-spacing: 4.75px
-
-@mixin subheading-one
-  @include bellefair-white
-  font-size: 1.75rem
-  line-height: 2rem
-
-@mixin subheading-two
-  @include barlow-white
-  font-size: 0.875rem
-  letter-spacing: 0.147656rem
-  line-height: 1.0625rem
-  text-transform: uppercase
-
-@mixin nav-text
-  @include barlow-white
-  font-size: 1rem
-  letter-spacing: 0.16875rem
-  line-height: 1.1875rem
-  text-transform: uppercase
-  
-@mixin body-text
-  font-family: 'barlow', sans-serif
-  font-size: 0.9375rem
-  line-height: 1.5625rem
-  color: $light-blue
-
-//---------------CONTENT PICKER COMPONENT--------------------
-.dot
-  width: 60%
-  margin: 0 auto
-
-  &__list
-    display: flex
-    justify-content: space-evenly
-    align-items: center
-
-    &-item
-      width: 1rem
-      height: 1rem
-      position: relative
-    
-  &__button
-    width: 100%
-    height: 100%
-    border-radius: 50%
-    font-size: 0px
-    cursor: pointer
-    position: absolute
-    transition: all ease-out 250ms
-
-    &:hover
-      border: 1px solid $basic-white
-
-    &--active
-      background-color: $basic-white
-      border: 1px solid $basic-white
-      color: $dark-blue
-
-    &--inactive
-      background-color: rgba(255, 255, 255, 0)
-      border: 1px solid $quarter-white
-      color: $basic-white
-
-
-
-.numbered
-
-  &__list
-    counter-reset: numeral-counter
-    display: flex
-    justify-content: space-evenly
-
-    &-item
-      color: $basic-white
-      width: 4rem
-      height: 4rem
-      position: relative
-     
-    
-  &__button
-    width: 100%
-    height: 100%
-    border-radius: 50%
-    overflow: hidden
-    position: relative
-    display: flex
-    justify-content: center
-    align-items: center
-    font-size: 0px
-    cursor: pointer
-    transition: all ease-out 250ms
-
-    &::before
-      font-family: 'Bellefair', serif
-      font-size: 1.6rem
-      position: absolute
-      counter-increment: numeral-counter
-      content: counter(numeral-counter)
-
-    &:hover
-      border: 1px solid $basic-white
-
-    &--active
-      background-color: rgba(255, 255, 255, 1)
-      border: 1px solid $basic-white
-      color: $dark-blue
-
-    &--inactive
-      background-color: rgba(255, 255, 255, 0)
-      border: 1px solid $quarter-white
-      color: $basic-white
-
-.named
-  width: 63.33%
-  margin: 0 auto
-
-  &__list
-    display: flex
-    justify-content: space-between
-
-    &-item
-    
-  &__button
-    @include subheading-two
-    font-weight: 200
-    border: none
-    background-color: rgba(255, 255, 255, 0)
-    position: relative
-    cursor: pointer
-    padding-bottom: 0.6875rem
-
-    &--inactive
-      color: $light-blue
-
-    &--inactive::before,
-    &--active::before
-      content: ''
-      position: absolute
-      bottom: 0
-      left: -0.08rem
-      right: -0.05rem
-      top: 0
-      transition: all ease-out 250ms
-
-    &--inactive::before
-      transform: scaleX(0)
-      border-bottom: 3px solid $quarter-white
-
-    &--inactive:hover::before
-        transform: scaleX(1)
-
-    &--active::before
-      border-bottom: 3px solid $basic-white
-        
-
 
 //---------------HTML GENERALS-----------------
 * 
@@ -253,7 +76,9 @@ a
   position: relative
 
 .sub-header
-  @include subheading-one
+  line-height: 2rem
+  font-size: 1.75rem
+  @include bellefair-white
 
   &--num
     opacity: 0.25
@@ -263,7 +88,7 @@ a
   top: 0
   height: 100vh
   transition: all 0.3s ease
-  background-color: rgba(255, 255, 255, 0.04)
+  background-color: $nav-white
   backdrop-filter: blur(81.5485px)
   display: flex
   flex-direction: row-reverse
@@ -297,7 +122,11 @@ a
       overflow: hidden
 
       &__text
-        @include nav-text
+        @include barlow-white
+        font-size: 1rem
+        letter-spacing: 0.16875rem
+        line-height: 1.1875rem
+        text-transform: uppercase
         font-weight: 200
 
         &--number
@@ -308,9 +137,13 @@ a
 
           
 .section-header
-  @include nav-text
-  font-weight: 400
   display: inline
+  @include barlow-white
+  font-size: 1rem
+  letter-spacing: 0.16875rem
+  line-height: 1.1875rem
+  text-transform: uppercase
+  font-weight: 200
   margin-bottom: 2rem
   
   &__num
@@ -318,7 +151,7 @@ a
     width: 0.9375rem
     margin-right: 1.125rem
     opacity: 0.25
-    font-weight: 700
+    font-weight: bold
 
 .landing
   position: absolute
@@ -345,28 +178,32 @@ a
     margin-top: calc(100vh * 0.1679)
 
   &__heading-five
-    @include heading-five
+    @include barlow-blue
     font-size: 1rem
     letter-spacing: 0.16875rem
     font-weight: 400
     
   &__heading-one
-    @include heading-one
+    @include bellefair-white
     font-size: 5rem
     line-height: 6.25rem
-    font-weight: 400
     
   &__text-body
-    @include body-text
+    font-family: 'barlow', sans-serif
+    font-size: 0.9375rem
+    line-height: 1.5625rem
+    color: $light-blue
     font-weight: 200
     height: 7.8125rem
 
   &__button
-    @include heading-four
+    @include bellefair-white
+    font-size: 1rem
+    line-height: 1.125rem
+    font-weight: 100
     position: relative
     color: $dark-blue
     font-size: 1.25rem
-    background-color: rgba(255, 255, 255, 0)
     display: flex
     justify-content: center
     align-items: center
@@ -413,11 +250,16 @@ a
   top: 0
   width: 100%
   height: 100vh
-  background: rgba(11, 13, 23, 0.1) url('../public/assets/destination/background-destination-mobile.jpg') no-repeat
-  background-blend-mode: overlay
+  background: rgba(11, 13, 23, 0.6) url('../public/assets/destination/background-destination-mobile.jpg') no-repeat
+  background-blend-mode: darken
   background-size: cover
   padding-top: 5.5rem
-  padding-bottom: 3.625rem
+  overflow-y: scroll
+  -ms-overflow-style: none
+  scrollbar-width: none
+
+  &::-webkit-scrollbar
+    display: none
 
   &-container
     width: 100%
@@ -425,14 +267,15 @@ a
     position: relative
     display: flex
     flex-direction: column
-    // justify-content: space-between
     align-items: center
+    
  
   &__image
     width: 10.625rem
     height: 10.625rem
     position: relative
     margin: 0 auto 1.625rem
+    flex-shrink: 0
 
   &-picker
     width: 100%
@@ -446,12 +289,15 @@ a
       border-bottom: 1px solid #383B4B
 
     &__heading
-      @include heading-two
+      @include bellefair-white
       font-size: 3.5rem
       line-height: 4.0625rem
 
     &__text
-      @include body-text
+      font-family: 'barlow', sans-serif
+      font-size: 0.9375rem
+      line-height: 1.5625rem
+      color: $light-blue
       width: 95%
       margin: 0 auto 2rem
 
@@ -459,19 +305,26 @@ a
     display: flex
     flex-direction: column
     justify-content: space-evenly
+    margin-bottom: 3.625rem
 
     &__item
       text-align: center
       margin-top: 2rem
 
       &-heading
-        @include subheading-two
+        @include barlow-white
+        font-size: 0.875rem
+        letter-spacing: 0.147656rem
+        line-height: 1.0625rem
+        text-transform: uppercase
         color: $light-blue
         font-weight: 200
         margin-bottom: 0.75rem
         
       &-stat
-        @include subheading-one
+        @include bellefair-white
+        line-height: 2rem
+        font-size: 1.75rem
         
 .crew
   position: absolute
@@ -483,38 +336,60 @@ a
   background-blend-mode: darken
   background-size: cover
   padding-top: 5.5rem
-  padding-bottom: 3.625rem
+  overflow-y: scroll
+  -ms-overflow-style: none
+  scrollbar-width: none
+
+  &::-webkit-scrollbar
+    display: none
 
   &-container
-    width: 100%
+    width: 87.2%
     height: 100%
+    margin: 0 auto
     position: relative
     display: flex
     flex-direction: column
     align-items: center
 
   &__image
-    width: 14rem
-    height: 14rem
+    width: 100%
+    height: 13.9375rem
     position: relative
-    margin: 0
+    margin: 0 auto
+    flex-shrink: 0
+    border-bottom: 1px solid #383B4B
 
   &__picker
-    width: 100%
+    width: 5.5rem
+    margin: 2rem auto
 
   &-info
     text-align: center
+    
 
     &__role
-      @include heading-four
+      @include bellefair-white
+      font-size: 1rem
+      line-height: 1.125rem
+      font-weight: 100
       opacity: 0.5
+      margin: 0 auto
     
     &__name
-      @include heading-three
+      @include bellefair-white
+      font-size: 1.5rem
+      line-height: 1.75rem
+      font-weight: 100
+      margin: 0.5rem auto 1rem
 
     &__bio
-      @include body-text
+      font-family: 'barlow', sans-serif
+      font-size: 0.9375rem
+      line-height: 1.5625rem
       color: $light-blue
+      width: 98.87%
+      margin-bottom: 3.375rem
 
 .tech
   position: absolute
@@ -522,68 +397,103 @@ a
   top: 0
   width: 100%
   height: 100vh
-  background: $dark-blue url('../public/assets/technology/background-technology-mobile.jpg') no-repeat 
+  background: rgba(11, 13, 23, 0.6) url('../public/assets/technology/background-technology-mobile.jpg') no-repeat 
   background-size: cover
+  background-blend-mode: darken
   padding-top: 5.5rem
-  padding-bottom: 3.625rem
+  overflow-y: scroll
+  -ms-overflow-style: none
+  scrollbar-width: none
+
+  &::-webkit-scrollbar
+    display: none
 
   &-container
-    width: 100%
+    width: 87.2%
     position: relative
+    margin: 0 auto
     display: flex
-    justify-content: center
     flex-direction: column
     align-items: center
 
   &__image
-    height: 15rem
-    width: 102vw
+    height: 10.625rem
+    width: 101vw
     position: relative
+    flex-shrink: 0
+  
+  &__picker
+    margin: 2.125rem auto 1.625rem
+    width: 9.5rem
 
   &-info
     text-align: center
 
     &__sub
-      @include nav-text
+      @include barlow-white
+      text-transform: uppercase
+      font-weight: 100
+      font-size: 0.875rem
+      line-height: 1.0625rem
+      letter-spacing: 0.147656rem
       color: $light-blue
     
     &__name
-      @include heading-three
+      @include bellefair-white
+      font-size: 1.5rem
+      line-height: 1.75rem
+      font-weight: 100
+      margin: 0.5625rem auto 1rem
 
     &__description
-      @include body-text
+      font-family: 'barlow', sans-serif
+      font-size: 0.9375rem
+      line-height: 1.5625rem
       color: $light-blue
+      width: 97.5%
+      margin-bottom: 5.0825rem
 
-@media screen and (min-width: 800px)
+@media screen and (min-width: 760px)
   .section-header
     display: block
     width: 90%
 
-  .header__hamburger
-    display: none
+  .header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding-left: 2.4375rem
+    padding-right: 0    
+
+    &__hamburger
+      display: none
+  
+  .logo
+    width: 3rem
+    height: 3rem
 
   .nav
+    position: relative
+    width: 58.59375%
+    height: 6rem
     top: 0
     right: 0
-    height: 6rem
-    display: flex
     flex-direction: row
-    width: 30rem
+    justify-content: center
   
     &--closed
       transform: none
-      right: 0
-      width: 30rem
 
     &__exit
       display: none
 
     &-list
       flex-direction: row
-      justify-content: space-evenly
+      justify-content: space-between
       align-items: center
-      width: 80%
+      width: 79.11%
       height: 100%
+      margin: 0
 
       &-item
         height: 100%
@@ -611,11 +521,39 @@ a
           border-bottom: 2px solid $basic-white
           transform: scaleX(1)
 
-        &__text--number
-          display: none
+        &__text
+          font-size: 0.875rem
+          line-height: 1.0625rem
+          letter-spacing: 0.147656rem
+
+          &--number
+            display: none
 
   .landing
     background: $dark-blue url('../public/assets/home/background-home-tablet.jpg') no-repeat center/100%
+
+    &-container
+      width: 28.125rem
+      height: 20.875rem
+
+    &__heading-five
+      font-size: 1.25rem
+      line-height: 1.5rem
+      letter-spacing: 0.2109rem
+      font-weight: 200
+
+    &__heading-one
+      font-size: 9.375rem
+      line-height: 9.375rem
+
+    &__text-body
+      width: 97%
+      font-size: 1rem
+      line-height: 1.75rem
+
+    &__button
+      width: 15.125rem
+      height: 15.125rem
   
   .destination
     background: $dark-blue url('../public/assets/destination/background-destination-tablet.jpg') no-repeat center/100%
@@ -781,3 +719,8 @@ a
   .nav
     background-color: rgba(11, 13, 23, 0.9)
     z-index: 4
+
+  @media screen and (min-width: 760px)
+    .nav
+      background-color: #131720
+      z-index: 4

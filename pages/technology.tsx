@@ -46,7 +46,7 @@ const Technology: NextPage = () => {
             <Image 
               src={isDesktop ? displayed.images.portrait.src.slice(1) : displayed.images.landscape.src.slice(1)} 
               layout="fill"
-              objectFit='contain' 
+              objectFit='fill' 
               alt={`Image of ${displayed.name}`}
             />
           </div>

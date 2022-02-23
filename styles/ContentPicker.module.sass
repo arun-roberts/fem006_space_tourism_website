@@ -1,0 +1,141 @@
+// ---------FONT IMPORTS--------------
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;400;600;700&family=Barlow:wght@200&family=Bellefair&display=swap')
+    
+// -----------COLOUR VARIABLES--------------
+$dark-blue: #0b0d17
+$light-blue: #d0d6f9
+$basic-white: #fff
+$half-transparent-white: rgba(255, 255, 255, 0.5)
+$quarter-white: rgba(255, 255, 255, 0.25)
+$nav-white: rgba(255, 255, 255, 0.04)
+    
+//---------------CONTENT PICKER COMPONENT--------------------
+.dot
+  width: 100%
+  margin: 0 auto
+
+  &__list
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    &_item
+      width: 0.625rem
+      height: 0.625rem
+      position: relative
+    
+  &__button
+    width: 100%
+    height: 100%
+    border-radius: 50%
+    font-size: 0px
+    cursor: pointer
+    position: absolute
+    transition: all ease-out 250ms
+
+    &:hover
+      background-color: $half-transparent-white
+
+    &___active
+      background-color: $basic-white
+
+    &___inactive
+      background-color: rgba(255, 255, 255, 0.17)
+
+
+
+.numbered
+  width: 100%
+
+  &__list
+    counter-reset: numeral-counter
+    display: flex
+    justify-content: space-between
+
+    &_item
+      color: $basic-white
+      width: 2.5rem
+      height: 2.5rem
+      position: relative
+     
+  &__button
+    width: 100%
+    height: 100%
+    border-radius: 50%
+    overflow: hidden
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    font-size: 0px
+    cursor: pointer
+    transition: all ease-out 250ms
+
+    &::before
+      font-family: 'Bellefair', serif
+      font-weight: 100
+      font-size: 1rem
+      position: absolute
+      counter-increment: numeral-counter
+      content: counter(numeral-counter)
+
+    &:hover
+      border: 1px solid $basic-white
+
+    &___active
+      background-color: rgba(255, 255, 255, 1)
+      color: $dark-blue
+
+    &___inactive
+      background-color: rgba(255, 255, 255, 0)
+      border: 1.8px solid $quarter-white
+      color: $basic-white
+
+.named
+  width: 63.33%
+  margin: 0 auto
+
+  &__list
+    display: flex
+    justify-content: space-between
+
+    &_item
+    
+  &__button
+    font-family: 'Barlow Condensed', sans-serif
+    color: $basic-white
+    text-transform: uppercase
+    font-size: 0.875rem
+    letter-spacing: 0.147656rem
+    line-height: 1.0625rem
+    text-transform: uppercase
+    font-weight: 200
+    border: none
+    background-color: rgba(255, 255, 255, 0)
+    position: relative
+    cursor: pointer
+    padding-bottom: 0.6875rem
+
+    &___inactive
+      color: $light-blue
+
+    &___inactive::before,
+    &___active::before
+      content: ''
+      position: absolute
+      bottom: 0
+      left: -0.08rem
+      right: -0.05rem
+      top: 0
+      transition: all ease-out 250ms
+
+    &___inactive::before
+      transform: scaleX(0)
+      border-bottom: 3px solid $quarter-white
+
+    &___inactive:hover::before
+        transform: scaleX(1)
+
+    &___active::before
+      border-bottom: 3px solid $basic-white
+        

@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;400;600;700&family=Barlow:wght@200&family=Bellefair&display=swap");
+.dot {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.dot__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dot__list_item {
+  width: 0.625rem;
+  height: 0.625rem;
+  position: relative;
+}
+
+.dot__button {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  font-size: 0px;
+  cursor: pointer;
+  position: absolute;
+  -webkit-transition: all ease-out 250ms;
+  transition: all ease-out 250ms;
+}
+
+.dot__button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.dot__button___active {
+  background-color: #fff;
+}
+
+.dot__button___inactive {
+  background-color: rgba(255, 255, 255, 0.17);
+}
+
+.numbered {
+  width: 100%;
+}
+
+.numbered__list {
+  counter-reset: numeral-counter;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.numbered__list_item {
+  color: #fff;
+  width: 2.5rem;
+  height: 2.5rem;
+  position: relative;
+}
+
+.numbered__button {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 0px;
+  cursor: pointer;
+  -webkit-transition: all ease-out 250ms;
+  transition: all ease-out 250ms;
+}
+
+.numbered__button::before {
+  font-family: 'Bellefair', serif;
+  font-weight: 100;
+  font-size: 1rem;
+  position: absolute;
+  counter-increment: numeral-counter;
+  content: counter(numeral-counter);
+}
+
+.numbered__button:hover {
+  border: 1px solid #fff;
+}
+
+.numbered__button___active {
+  background-color: white;
+  color: #0b0d17;
+}
+
+.numbered__button___inactive {
+  background-color: rgba(255, 255, 255, 0);
+  border: 1.8px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.named {
+  width: 63.33%;
+  margin: 0 auto;
+}
+
+.named__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.named__button {
+  font-family: 'Barlow Condensed', sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.147656rem;
+  line-height: 1.0625rem;
+  text-transform: uppercase;
+  font-weight: 200;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  position: relative;
+  cursor: pointer;
+  padding-bottom: 0.6875rem;
+}
+
+.named__button___inactive {
+  color: #d0d6f9;
+}
+
+.named__button___inactive::before, .named__button___active::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -0.08rem;
+  right: -0.05rem;
+  top: 0;
+  -webkit-transition: all ease-out 250ms;
+  transition: all ease-out 250ms;
+}
+
+.named__button___inactive::before {
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.25);
+}
+
+.named__button___inactive:hover::before {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.named__button___active::before {
+  border-bottom: 3px solid #fff;
+}
+/*# sourceMappingURL=ContentPicker.module.css.map */

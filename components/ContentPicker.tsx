@@ -1,21 +1,21 @@
-import { useState } from 'react'  
 import Link from 'next/link'
+import styles from '../styles/ContentPicker.module.css'
 
 const ContentPicker = ({data, buttonStyle, current}: {data: any[], buttonStyle: number, current: number}) => {
     const buttonStyles: string[] = [ 'dot', 'numbered', 'named']
     const button = buttonStyles[buttonStyle] || buttonStyles[0]
     return (
-        <nav className={button}>
-            <ul className={button + '__list'}>
+        <nav className={styles[button]}>
+            <ul className={styles[button + '__list']}>
               {
                 data.map((e, i) => 
                   <li 
                     key={i}
-                    className={button + '__list-item'}
+                    className={styles[button + '__list_item']}
                   >
                     <Link href={`#${e.name.replace(' ', '_')}`}>
                       <a 
-                        className={`${button}__button ${button + (i == current ? '__button--active ' : '__button--inactive')}`}
+                        className={`${styles[button + '__button']} ${styles[`${i == current ? button + '__button___active' : button + '__button___inactive'}`]}`}
                       >
                         {e.name}
                       </a>
