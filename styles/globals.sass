@@ -1,13 +1,15 @@
 // ---------FONT IMPORTS--------------
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;400;600;700&family=Barlow:wght@200&family=Bellefair&display=swap')
 
-// -----------COLOUR VARIABLES--------------
+// -----------BASE COLOURS--------------
 $dark-blue: #0b0d17
 $light-blue: #d0d6f9
 $basic-white: #fff
+// -----------COLOUR VARIANTS--------------
 $half-transparent-white: rgba(255, 255, 255, 0.5)
 $quarter-white: rgba(255, 255, 255, 0.25)
 $nav-white: rgba(255, 255, 255, 0.04)
+$background-overlay: rgba(11, 13, 23, 0.6)
 
 // ------------FONT GENERALS------------------
 @mixin bellefair-white
@@ -250,7 +252,7 @@ a
   top: 0
   width: 100%
   height: 100vh
-  background: rgba(11, 13, 23, 0.6) url('../public/assets/destination/background-destination-mobile.jpg') no-repeat
+  background: $background-overlay url('../public/assets/destination/background-destination-mobile.jpg') no-repeat
   background-blend-mode: darken
   background-size: cover
   padding-top: 5.5rem
@@ -268,7 +270,6 @@ a
     display: flex
     flex-direction: column
     align-items: center
-    
  
   &__image
     width: 10.625rem
@@ -278,7 +279,7 @@ a
     flex-shrink: 0
 
   &-picker
-    width: 100%
+    width: 14.84375rem
 
   &-info
 
@@ -332,7 +333,7 @@ a
   top: 0
   width: 100%
   height: 100vh
-  background:rgba(11, 13, 23, 0.6) url('../public/assets/crew/background-crew-mobile.jpg') no-repeat 
+  background:$background-overlay url('../public/assets/crew/background-crew-mobile.jpg') no-repeat 
   background-blend-mode: darken
   background-size: cover
   padding-top: 5.5rem
@@ -366,7 +367,6 @@ a
 
   &-info
     text-align: center
-    
 
     &__role
       @include bellefair-white
@@ -389,7 +389,7 @@ a
       line-height: 1.5625rem
       color: $light-blue
       width: 98.87%
-      margin-bottom: 3.375rem
+      margin: 0 auto 3.375rem
 
 .tech
   position: absolute
@@ -397,7 +397,7 @@ a
   top: 0
   width: 100%
   height: 100vh
-  background: rgba(11, 13, 23, 0.6) url('../public/assets/technology/background-technology-mobile.jpg') no-repeat 
+  background: $background-overlay url('../public/assets/technology/background-technology-mobile.jpg') no-repeat 
   background-size: cover
   background-blend-mode: darken
   padding-top: 5.5rem
@@ -457,6 +457,10 @@ a
   .section-header
     display: block
     width: 90%
+    font-size: 1.25rem
+    line-height: 1.5rem
+    letter-spacing: 0.2109375rem
+    margin-bottom: 3.75rem
 
   .header
     display: flex
@@ -522,6 +526,7 @@ a
           transform: scaleX(1)
 
         &__text
+          width: 100%
           font-size: 0.875rem
           line-height: 1.0625rem
           letter-spacing: 0.147656rem
@@ -535,6 +540,7 @@ a
     &-container
       width: 28.125rem
       height: 20.875rem
+      margin-top: 12.625rem
 
     &__heading-five
       font-size: 1.25rem
@@ -554,31 +560,120 @@ a
     &__button
       width: 15.125rem
       height: 15.125rem
+      margin-bottom: 5.625rem
   
   .destination
-    background: $dark-blue url('../public/assets/destination/background-destination-tablet.jpg') no-repeat center/100%
-    padding-top: 6rem
+    background: $background-overlay url('../public/assets/destination/background-destination-tablet.jpg') no-repeat
+    background-size: cover
+    padding-top: 8.5rem
+
+    &__image
+      width: 18.75rem
+      height: 18.75rem
+      margin: 0 auto 3.3125rem
+
+    &-picker
+      width: 17.84375rem
+
+    &-info
+      width: 74.609375%
+      margin: 2.875rem auto 0
+
+      &__body
+        width: 100%
+        margin: 0 
+
+      &__heading
+        font-size: 5rem
+        line-height: 5.75rem
+
+      &__text
+        width: 100%
+        font-size: 1rem
+        line-height: 1.75rem
+        margin: 0.5rem auto 3.0625rem
 
     &-stats
       flex-direction: row
       justify-content: space-evenly
 
+      &__item
+        margin-top: 1.8125rem
+
   .crew
-    background: $dark-blue url('../public/assets/crew/background-crew-tablet.jpg') no-repeat center/100%
-    padding-top: 6rem
+    background: $background-overlay url('../public/assets/crew/background-crew-tablet.jpg') no-repeat
+    background-size: cover
+    padding-top: 8.5rem
+
+    &-container
+      width: 100%
+      justify-content: space-between
 
     &__image
       order: 3
+      border: none
     
     &__picker
       order: 2
+      margin: 2.5rem auto
       
     &-info
       order: 1
+      width: 59.6354%
+
+      &__role
+        font-size: 1.5rem
+        line-height: 1.75rem
+
+      &__name
+        font-size: 2.5rem
+        line-height: 2.875rem
+
+      &__bio
+        font-size: 1rem
+        line-height: 1.75rem
+        margin: 0 auto
+
+  .douglas_hurley
+    &__image
+      width: 28.523125rem
+      height: 35.75rem
+      margin: 0 20.283854166% 0 20.29296875%
+
+    &-info
+      width: 28.523125rem
+
+  .mark_shuttleworth
+    &__image
+      width: 23.053125rem
+      height: 33.25rem
+      margin: 0 25.93098958333% 0 26.041666%
+
+    &-info
+      width: 32.5rem
+
+  .victor_glover
+    &__image
+      width: 29rem
+      height: 33.25rem
+      margin: 0 21.59557291666% 0 20.3125%
+
+    &-info
+      width: 37rem
+
+  .anousheh_ansari
+    &__image
+      width: 28.523125rem
+      height: 35.75rem
+      margin: 0 20.283854166% 0 20.29296875%
+
+    &-info
+      width: 33.5rem
 
   .tech
-    background: $dark-blue url('../public/assets/technology/background-technology-tablet.jpg') no-repeat center/100%
-    padding-top: 6rem
+    background: $background-overlay url('../public/assets/technology/background-technology-tablet.jpg') no-repeat
+    background-size: cover
+    padding-top: 8.5rem
 
     &__image
       height: 25rem
@@ -625,7 +720,8 @@ a
     width: 50%
 
   .landing
-    background: $dark-blue url('../public/assets/home/background-home-desktop.jpg') no-repeat center/100%
+    background: $dark-blue url('../public/assets/home/background-home-desktop.jpg') no-repeat
+    background-size: cover
     flex-direction: row
 
     &-container
@@ -634,7 +730,8 @@ a
       width: 30%
 
   .destination
-    background: $dark-blue url('../public/assets/destination/background-destination-desktop.jpg') no-repeat center/100%
+    background: $background-overlay url('../public/assets/destination/background-destination-desktop.jpg') no-repeat
+    background-size: cover
     padding-top: 10rem
 
     &-container
@@ -662,7 +759,8 @@ a
       text-align: left
 
   .crew
-    background: $dark-blue url('../public/assets/crew/background-crew-desktop.jpg') no-repeat center/100%
+    background: $background-overlay url('../public/assets/crew/background-crew-desktop.jpg') no-repeat
+    background-size: cover
     padding-top: 10rem
 
     &-container
@@ -686,7 +784,8 @@ a
       text-align: left
 
   .tech
-    background: $dark-blue url('../public/assets/technology/background-technology-desktop.jpg') no-repeat center/100%
+    background: $background-overlay url('../public/assets/technology/background-technology-desktop.jpg') no-repeat 
+    background-size: cover
     padding-top: 10rem
 
     &-container

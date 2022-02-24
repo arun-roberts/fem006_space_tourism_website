@@ -361,7 +361,7 @@ a {
 }
 
 .destination-picker {
-  width: 100%;
+  width: 14.84375rem;
 }
 
 .destination-info__body {
@@ -513,7 +513,7 @@ a {
   line-height: 1.5625rem;
   color: #d0d6f9;
   width: 98.87%;
-  margin-bottom: 3.375rem;
+  margin: 0 auto 3.375rem;
 }
 
 .tech {
@@ -603,6 +603,10 @@ a {
   .section-header {
     display: block;
     width: 90%;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.2109375rem;
+    margin-bottom: 3.75rem;
   }
   .header {
     display: -webkit-box;
@@ -697,6 +701,7 @@ a {
             transform: scaleX(1);
   }
   .nav-list-item__text {
+    width: 100%;
     font-size: 0.875rem;
     line-height: 1.0625rem;
     letter-spacing: 0.147656rem;
@@ -710,6 +715,7 @@ a {
   .landing-container {
     width: 28.125rem;
     height: 20.875rem;
+    margin-top: 12.625rem;
   }
   .landing__heading-five {
     font-size: 1.25rem;
@@ -729,10 +735,38 @@ a {
   .landing__button {
     width: 15.125rem;
     height: 15.125rem;
+    margin-bottom: 5.625rem;
   }
   .destination {
-    background: #0b0d17 url("../public/assets/destination/background-destination-tablet.jpg") no-repeat center/100%;
-    padding-top: 6rem;
+    background: rgba(11, 13, 23, 0.6) url("../public/assets/destination/background-destination-tablet.jpg") no-repeat;
+    background-size: cover;
+    padding-top: 8.5rem;
+  }
+  .destination__image {
+    width: 18.75rem;
+    height: 18.75rem;
+    margin: 0 auto 3.3125rem;
+  }
+  .destination-picker {
+    width: 17.84375rem;
+  }
+  .destination-info {
+    width: 74.609375%;
+    margin: 2.875rem auto 0;
+  }
+  .destination-info__body {
+    width: 100%;
+    margin: 0;
+  }
+  .destination-info__heading {
+    font-size: 5rem;
+    line-height: 5.75rem;
+  }
+  .destination-info__text {
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.75rem;
+    margin: 0.5rem auto 3.0625rem;
   }
   .destination-stats {
     -webkit-box-orient: horizontal;
@@ -743,28 +777,87 @@ a {
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
   }
+  .destination-stats__item {
+    margin-top: 1.8125rem;
+  }
   .crew {
-    background: #0b0d17 url("../public/assets/crew/background-crew-tablet.jpg") no-repeat center/100%;
-    padding-top: 6rem;
+    background: rgba(11, 13, 23, 0.6) url("../public/assets/crew/background-crew-tablet.jpg") no-repeat;
+    background-size: cover;
+    padding-top: 8.5rem;
+  }
+  .crew-container {
+    width: 100%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
   .crew__image {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
+    border: none;
   }
   .crew__picker {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
+    margin: 2.5rem auto;
   }
   .crew-info {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
+    width: 59.6354%;
+  }
+  .crew-info__role {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+  }
+  .crew-info__name {
+    font-size: 2.5rem;
+    line-height: 2.875rem;
+  }
+  .crew-info__bio {
+    font-size: 1rem;
+    line-height: 1.75rem;
+    margin: 0 auto;
+  }
+  .douglas_hurley__image {
+    width: 28.523125rem;
+    height: 35.75rem;
+    margin: 0 20.283854166% 0 20.29296875%;
+  }
+  .douglas_hurley-info {
+    width: 28.523125rem;
+  }
+  .mark_shuttleworth__image {
+    width: 23.053125rem;
+    height: 33.25rem;
+    margin: 0 25.93098958333% 0 26.041666%;
+  }
+  .mark_shuttleworth-info {
+    width: 32.5rem;
+  }
+  .victor_glover__image {
+    width: 29rem;
+    height: 33.25rem;
+    margin: 0 21.59557291666% 0 20.3125%;
+  }
+  .victor_glover-info {
+    width: 37rem;
+  }
+  .anousheh_ansari__image {
+    width: 28.523125rem;
+    height: 35.75rem;
+    margin: 0 20.283854166% 0 20.29296875%;
+  }
+  .anousheh_ansari-info {
+    width: 33.5rem;
   }
   .tech {
-    background: #0b0d17 url("../public/assets/technology/background-technology-tablet.jpg") no-repeat center/100%;
-    padding-top: 6rem;
+    background: rgba(11, 13, 23, 0.6) url("../public/assets/technology/background-technology-tablet.jpg") no-repeat;
+    background-size: cover;
+    padding-top: 8.5rem;
   }
   .tech__image {
     height: 25rem;
@@ -822,7 +915,8 @@ a {
     width: 50%;
   }
   .landing {
-    background: #0b0d17 url("../public/assets/home/background-home-desktop.jpg") no-repeat center/100%;
+    background: #0b0d17 url("../public/assets/home/background-home-desktop.jpg") no-repeat;
+    background-size: cover;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -836,7 +930,8 @@ a {
     width: 30%;
   }
   .destination {
-    background: #0b0d17 url("../public/assets/destination/background-destination-desktop.jpg") no-repeat center/100%;
+    background: rgba(11, 13, 23, 0.6) url("../public/assets/destination/background-destination-desktop.jpg") no-repeat;
+    background-size: cover;
     padding-top: 10rem;
   }
   .destination-container {
@@ -867,7 +962,8 @@ a {
     text-align: left;
   }
   .crew {
-    background: #0b0d17 url("../public/assets/crew/background-crew-desktop.jpg") no-repeat center/100%;
+    background: rgba(11, 13, 23, 0.6) url("../public/assets/crew/background-crew-desktop.jpg") no-repeat;
+    background-size: cover;
     padding-top: 10rem;
   }
   .crew-container {
@@ -898,7 +994,8 @@ a {
     text-align: left;
   }
   .tech {
-    background: #0b0d17 url("../public/assets/technology/background-technology-desktop.jpg") no-repeat center/100%;
+    background: rgba(11, 13, 23, 0.6) url("../public/assets/technology/background-technology-desktop.jpg") no-repeat;
+    background-size: cover;
     padding-top: 10rem;
   }
   .tech-container {

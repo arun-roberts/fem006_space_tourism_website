@@ -12,7 +12,6 @@ $nav-white: rgba(255, 255, 255, 0.04)
 //---------------CONTENT PICKER COMPONENT--------------------
 .dot
   width: 100%
-  margin: 0 auto
 
   &__list
     display: flex
@@ -41,8 +40,6 @@ $nav-white: rgba(255, 255, 255, 0.04)
 
     &___inactive
       background-color: rgba(255, 255, 255, 0.17)
-
-
 
 .numbered
   width: 100%
@@ -92,8 +89,7 @@ $nav-white: rgba(255, 255, 255, 0.04)
       color: $basic-white
 
 .named
-  width: 63.33%
-  margin: 0 auto
+  width: 100%
 
   &__list
     display: flex
@@ -139,3 +135,12 @@ $nav-white: rgba(255, 255, 255, 0.04)
     &___active::before
       border-bottom: 3px solid $basic-white
         
+@media screen and (min-width: 760px)
+  .named
+    &__button
+      font-size: 1rem
+      letter-spacing: 0.16875rem
+      line-height: 1.1875rem
+      padding-bottom: 0.875rem
+
+// @media screen and (min-width: 1200px)

@@ -19,6 +19,7 @@ const Crew: NextPage = () => {
     const { setCurrentCrew }: { setCurrentCrew: React.Dispatch<React.SetStateAction<number>>} = value
     const crew: CrewTypes = useMemo(() => [ ...data.crew ], [ ...data.crew ])
     const member: CrewMemb = crew[currentCrew]
+    const classString: string = member.name.replace(' ', '_').toLowerCase()
     const router = useRouter();
     useEffect(() => {
         const onHashChangeStart = (url: string) => {
@@ -37,8 +38,8 @@ const Crew: NextPage = () => {
     <div className="crew">
         <Meta />
         <div className="crew-container">
-        <h2 className="section-header"><span className="section-header__num">02</span> MEET YOUR CREW</h2>
-          <div className="crew__image">
+          <h2 className="section-header"><span className="section-header__num">02</span> MEET YOUR CREW</h2>
+          <div className={`crew__image ${classString}__image`}>
             <Image 
               src={member.images.webp.slice(1) || member.images.png.slice(1)} 
               layout="fill"
@@ -49,7 +50,7 @@ const Crew: NextPage = () => {
           <div className="crew__picker">
             <ContentPicker data={crew} buttonStyle={0} current={currentCrew}/>
           </div>
-          <div className='crew-info'>
+          <div className={`crew-info ${classString}-info`}>
             <h3 className='crew-info__role'>{member.role}</h3>
             <h4 className='crew-info__name'>{member.name}</h4>
             <p className='crew-info__bio'>{member.bio}</p>

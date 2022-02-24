@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;400;600;700&family=Barlow:wght@200&family=Bellefair&display=swap");
 .dot {
   width: 100%;
-  margin: 0 auto;
 }
 
 .dot__list {
@@ -112,8 +111,7 @@
 }
 
 .named {
-  width: 63.33%;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .named__list {
@@ -169,5 +167,14 @@
 
 .named__button___active::before {
   border-bottom: 3px solid #fff;
+}
+
+@media screen and (min-width: 760px) {
+  .named__button {
+    font-size: 1rem;
+    letter-spacing: 0.16875rem;
+    line-height: 1.1875rem;
+    padding-bottom: 0.875rem;
+  }
 }
 /*# sourceMappingURL=ContentPicker.module.css.map */
