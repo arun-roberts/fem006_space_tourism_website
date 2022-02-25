@@ -234,17 +234,16 @@ a
     &:hover::before
       transform: scale(150%)
 
-    &:active::before
-      width: 97%
-      height: 97%
-
     &::after
       background-color: $basic-white
       z-index: -1
+
+    &:hover::after
+      transform: scale(97%)
       
     &:active::after
-      width: 96%
-      height: 96%
+      width: 95%
+      height: 95%
     
 .destination
   position: absolute
@@ -535,7 +534,8 @@ a
             display: none
 
   .landing
-    background: $dark-blue url('/assets/home/background-home-tablet.jpg') no-repeat center/100%
+    background: $dark-blue url('/assets/home/background-home-tablet.jpg') no-repeat 
+    background-size: cover
 
     &-container
       width: 28.125rem
@@ -702,38 +702,33 @@ a
         margin-bottom: 6.0625rem
 
 @media screen and (min-width: 1200px)
-  .numbered
-
-    &__list
-      flex-direction: column
-      justify-content: space-evenly
-
   .header
     display: flex
     justify-content: space-between
     align-items: center
+    height: 6rem
     padding: 0
-    top: 2rem
-    left: 2rem
+    margin: 2.5rem 0 0 3.4375rem
 
     &__decorative-line
       position: absolute
       height: 1px
-      width: 40rem
+      width: 32.847222%
       background-color: $quarter-white
-      left: 15rem
-      z-index: 3
-
-  .logo
-    width: 6rem
-    height: 6rem
+      left: 11.597222%
+      z-index: 6
 
   .nav
     position: relative
-    width: 58%      
+    width: 57.63888%
 
-    &-list-item__text--number
-      display: inline
+    &-list-item__text
+      font-size: 1rem
+      line-height: 1.1875rem
+      letter-spacing: 0.16875rem
+
+      &--number
+        display: inline
 
   .section-header
     position: absolute
@@ -743,13 +738,33 @@ a
 
   .landing
     background: $dark-blue url('/assets/home/background-home-desktop.jpg') no-repeat
-    background-size: cover
+    background-size: fit
     flex-direction: row
+    align-items: end
 
     &-container
       text-align: left
       align-items: start
-      width: 30%
+      justify-content: space-between
+      width: 28.125rem
+      height: 23.875rem
+      margin: 0 0 9.097222% 11.458333%
+
+    &__heading-five
+      font-size: 1.75rem
+      line-height: 2.125rem
+      letter-spacing: 0.2953125rem
+
+    &__heading-one
+      line-height: 10.75rem
+
+
+    &__text-body
+      font-size: 1.125rem
+      line-height: 2rem
+
+    &__button
+      margin: 0 11.458333% 9.097222% 0
 
   .destination
     background: $background-overlay url('/assets/destination/background-destination-desktop.jpg') no-repeat

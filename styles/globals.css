@@ -301,19 +301,19 @@ a {
           transform: scale(150%);
 }
 
-.landing__button:active::before {
-  width: 97%;
-  height: 97%;
-}
-
 .landing__button::after {
   background-color: #fff;
   z-index: -1;
 }
 
+.landing__button:hover::after {
+  -webkit-transform: scale(97%);
+          transform: scale(97%);
+}
+
 .landing__button:active::after {
-  width: 96%;
-  height: 96%;
+  width: 95%;
+  height: 95%;
 }
 
 .destination {
@@ -710,7 +710,8 @@ a {
     display: none;
   }
   .landing {
-    background: #0b0d17 url("/assets/home/background-home-tablet.jpg") no-repeat center/100%;
+    background: #0b0d17 url("/assets/home/background-home-tablet.jpg") no-repeat;
+    background-size: cover;
   }
   .landing-container {
     width: 28.125rem;
@@ -886,15 +887,6 @@ a {
 }
 
 @media screen and (min-width: 1200px) {
-  .numbered__list {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-  }
   .header {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -905,25 +897,26 @@ a {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    height: 6rem;
     padding: 0;
-    top: 2rem;
-    left: 2rem;
+    margin: 2.5rem 0 0 3.4375rem;
   }
   .header__decorative-line {
     position: absolute;
     height: 1px;
-    width: 40rem;
+    width: 32.847222%;
     background-color: rgba(255, 255, 255, 0.25);
-    left: 15rem;
-    z-index: 3;
-  }
-  .logo {
-    width: 6rem;
-    height: 6rem;
+    left: 11.597222%;
+    z-index: 6;
   }
   .nav {
     position: relative;
-    width: 58%;
+    width: 57.63888%;
+  }
+  .nav-list-item__text {
+    font-size: 1rem;
+    line-height: 1.1875rem;
+    letter-spacing: 0.16875rem;
   }
   .nav-list-item__text--number {
     display: inline;
@@ -936,18 +929,41 @@ a {
   }
   .landing {
     background: #0b0d17 url("/assets/home/background-home-desktop.jpg") no-repeat;
-    background-size: cover;
+    background-size: fit;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: end;
   }
   .landing-container {
     text-align: left;
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: start;
-    width: 30%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 28.125rem;
+    height: 23.875rem;
+    margin: 0 0 9.097222% 11.458333%;
+  }
+  .landing__heading-five {
+    font-size: 1.75rem;
+    line-height: 2.125rem;
+    letter-spacing: 0.2953125rem;
+  }
+  .landing__heading-one {
+    line-height: 10.75rem;
+  }
+  .landing__text-body {
+    font-size: 1.125rem;
+    line-height: 2rem;
+  }
+  .landing__button {
+    margin: 0 11.458333% 9.097222% 0;
   }
   .destination {
     background: rgba(11, 13, 23, 0.6) url("/assets/destination/background-destination-desktop.jpg") no-repeat;
