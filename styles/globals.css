@@ -182,7 +182,7 @@ a {
   top: 0;
   width: 100%;
   height: 100vh;
-  background: #0b0d17 url("../public/assets/home/background-home-mobile.jpg") no-repeat;
+  background: url("../public/assets/home/background-home-mobile.jpg") no-repeat;
   background-size: cover;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -596,7 +596,7 @@ a {
   line-height: 1.5625rem;
   color: #d0d6f9;
   width: 97.5%;
-  margin-bottom: 5.0825rem;
+  margin: 0 auto 5.0825rem;
 }
 
 @media screen and (min-width: 760px) {
@@ -847,9 +847,9 @@ a {
     width: 37rem;
   }
   .anousheh_ansari__image {
-    width: 28.523125rem;
-    height: 35.75rem;
-    margin: 0 20.283854166% 0 20.29296875%;
+    width: 33.719375rem;
+    height: 33.25rem;
+    margin: 0 13.50338541666% 0 16.84791666%;
   }
   .anousheh_ansari-info {
     width: 33.5rem;
@@ -860,8 +860,28 @@ a {
     padding-top: 8.5rem;
   }
   .tech__image {
-    height: 25rem;
+    height: 19.375rem;
     width: 102vw;
+  }
+  .tech__picker {
+    margin: 3.5rem auto 2.75rem;
+    width: 13.125rem;
+  }
+  .tech-info__sub {
+    font-size: 1rem;
+    letter-spacing: 0.16875rem;
+    line-height: 1.1875rem;
+  }
+  .tech-info__name {
+    font-size: 2.5rem;
+    line-height: 2.875rem;
+    margin: 1rem auto;
+  }
+  .tech-info__description {
+    width: 65.1%;
+    font-size: 1rem;
+    line-height: 1.75rem;
+    margin-bottom: 6.0625rem;
   }
 }
 

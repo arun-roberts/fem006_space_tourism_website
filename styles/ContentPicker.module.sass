@@ -50,7 +50,6 @@ $nav-white: rgba(255, 255, 255, 0.04)
     justify-content: space-between
 
     &_item
-      color: $basic-white
       width: 2.5rem
       height: 2.5rem
       position: relative
@@ -136,11 +135,21 @@ $nav-white: rgba(255, 255, 255, 0.04)
       border-bottom: 3px solid $basic-white
         
 @media screen and (min-width: 760px)
+  .numbered__list_item
+    width: 3.75rem
+    height: 3.75rem
+    font-size: 1.5rem
+
+  .numbered__button::before
+    font-size: 1.5rem
+
   .named
     &__button
       font-size: 1rem
       letter-spacing: 0.16875rem
       line-height: 1.1875rem
       padding-bottom: 0.875rem
+
+  
 
 // @media screen and (min-width: 1200px)
