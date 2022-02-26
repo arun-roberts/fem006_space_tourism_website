@@ -47,10 +47,10 @@ const Destination: NextPage = () => {
                     alt={`Image of ${destination.name}`} 
                 />
             </div>
-            <div className='destination-picker'>
-                <ContentPicker data={destinations} current={currentDest} buttonStyle={2} />    
-            </div>
             <div className='destination-info'>
+                <div className='destination-picker'>
+                    <ContentPicker data={destinations} current={currentDest} buttonStyle={2} />    
+                </div>
                 <div className='destination-info__body'>
                     <h2 className='destination-info__heading'>{destination.name}</h2>
                     <p className='destination-info__text'>{destination.description}</p>

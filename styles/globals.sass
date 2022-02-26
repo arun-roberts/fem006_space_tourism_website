@@ -280,11 +280,13 @@ a
 
   &-picker
     width: 14.84375rem
+    height: 1.75rem
+    margin: 0 auto
 
   &-info
 
     &__body
-      margin: 1.9375rem auto 0
+      margin: 1.4375rem auto 0
       width: 87.2%
       text-align: center
       border-bottom: 1px solid #383B4B
@@ -462,6 +464,9 @@ a
     letter-spacing: 0.2109375rem
     margin-bottom: 3.75rem
 
+    &__num
+      margin-right: 1.1875rem
+
   .header
     display: flex
     justify-content: space-between
@@ -575,14 +580,15 @@ a
 
     &-picker
       width: 17.84375rem
+      height: 2.125rem
 
     &-info
       width: 74.609375%
-      margin: 2.875rem auto 0
+      margin: 0 
 
       &__body
         width: 100%
-        margin: 0 
+        margin: 2rem auto 0
 
       &__heading
         font-size: 5rem
@@ -744,6 +750,9 @@ a
     line-height: 2.125rem
     letter-spacing: 0.2953125rem
 
+    &__num
+      margin-right: 3.75rem
+
   .landing
     background: $dark-blue url('/assets/home/background-home-desktop.jpg') no-repeat
     background-size: cover
@@ -781,27 +790,25 @@ a
   .destination
     background: $background-overlay url('/assets/destination/background-destination-desktop.jpg') no-repeat
     background-size: cover
-    padding-top: 13.25rem
+    padding: 13.25rem 10.1875rem 7.375rem 10.40625rem
 
     &-container
-      width: 90%
+      width: 100%
       height: 100%
-      flex-wrap: wrap
-      justify-content: end
-      align-items: start
-      margin: 0 auto 0 10.40625rem
+      flex-direction: row
+      justify-content: space-between
+      align-items: end
+      // padding: 0 10.1875rem 0 10.40625rem
 
     &-picker
       width: 17.84375rem
       height: 2.125rem
-      margin-top: 5rem
+      margin: 5rem 0 0 0
 
     &__image
-      flex-grow: 2
-      flex-shrink: 0
       height: 27.8125rem
       width: 27.8125rem
-      margin: 8.1875rem 0 7rem 3.96875rem
+      margin: 0 0 0 3.96875rem
 
     &-info
       width: 27.8125rem
@@ -822,7 +829,7 @@ a
 
     &-stats
       justify-content: start
-      margin-bottom: 7.375rem
+      margin-bottom: 0
 
       &__item
         text-align: left

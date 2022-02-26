@@ -362,10 +362,12 @@ a {
 
 .destination-picker {
   width: 14.84375rem;
+  height: 1.75rem;
+  margin: 0 auto;
 }
 
 .destination-info__body {
-  margin: 1.9375rem auto 0;
+  margin: 1.4375rem auto 0;
   width: 87.2%;
   text-align: center;
   border-bottom: 1px solid #383B4B;
@@ -608,6 +610,9 @@ a {
     letter-spacing: 0.2109375rem;
     margin-bottom: 3.75rem;
   }
+  .section-header__num {
+    margin-right: 1.1875rem;
+  }
   .header {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -750,14 +755,15 @@ a {
   }
   .destination-picker {
     width: 17.84375rem;
+    height: 2.125rem;
   }
   .destination-info {
     width: 74.609375%;
-    margin: 2.875rem auto 0;
+    margin: 0;
   }
   .destination-info__body {
     width: 100%;
-    margin: 0;
+    margin: 2rem auto 0;
   }
   .destination-info__heading {
     font-size: 5rem;
@@ -934,6 +940,9 @@ a {
     line-height: 2.125rem;
     letter-spacing: 0.2953125rem;
   }
+  .section-header__num {
+    margin-right: 3.75rem;
+  }
   .landing {
     background: #0b0d17 url("/assets/home/background-home-desktop.jpg") no-repeat;
     background-size: cover;
@@ -979,35 +988,31 @@ a {
   .destination {
     background: rgba(11, 13, 23, 0.6) url("/assets/destination/background-destination-desktop.jpg") no-repeat;
     background-size: cover;
-    padding-top: 13.25rem;
+    padding: 13.25rem 10.1875rem 7.375rem 10.40625rem;
   }
   .destination-container {
-    width: 90%;
+    width: 100%;
     height: 100%;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: end;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: start;
-    margin: 0 auto 0 10.40625rem;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: end;
   }
   .destination-picker {
     width: 17.84375rem;
     height: 2.125rem;
-    margin-top: 5rem;
+    margin: 5rem 0 0 0;
   }
   .destination__image {
-    -webkit-box-flex: 2;
-        -ms-flex-positive: 2;
-            flex-grow: 2;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
     height: 27.8125rem;
     width: 27.8125rem;
-    margin: 8.1875rem 0 7rem 3.96875rem;
+    margin: 0 0 0 3.96875rem;
   }
   .destination-info {
     width: 27.8125rem;
@@ -1030,7 +1035,7 @@ a {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: start;
-    margin-bottom: 7.375rem;
+    margin-bottom: 0;
   }
   .destination-stats__item {
     text-align: left;
