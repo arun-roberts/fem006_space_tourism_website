@@ -913,9 +913,9 @@ a {
   .header__decorative-line {
     position: absolute;
     height: 1px;
-    width: 32.847222%;
     background-color: rgba(255, 255, 255, 0.25);
-    left: 11.597222%;
+    left: 10.4375rem;
+    right: 55.55555%;
     z-index: 6;
   }
   .nav {
@@ -1039,8 +1039,8 @@ a {
   }
   .destination-stats__item {
     text-align: left;
-    width: 8.9375rem;
-    margin-right: 4.9375rem;
+    width: 10rem;
+    margin-right: 3.8125rem;
   }
   .crew {
     background: rgba(11, 13, 23, 0.6) url("/assets/crew/background-crew-desktop.jpg") no-repeat;
