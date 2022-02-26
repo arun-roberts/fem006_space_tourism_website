@@ -12,14 +12,16 @@ const Header: () => JSX.Element = () => {
   return (
     <header className="header">
         <div className="header__logo">
-            <div className="logo">
-                <Image 
-                    src='/assets/shared/logo.svg' 
-                    alt='Company logo' 
-                    layout="fill"
-                    objectFit='contain'
-                />
-            </div>
+            <Link href='/'>
+                <a className="logo">
+                    <Image 
+                        src='/assets/shared/logo.svg' 
+                        alt='Company logo' 
+                        layout="fill"
+                        objectFit='contain'
+                    />
+                </a>
+            </Link>
             <div className="header__hamburger">
                 <Image 
                     onClick={() => setIsOpen(true)} 
