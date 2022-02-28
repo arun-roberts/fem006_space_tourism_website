@@ -369,6 +369,8 @@ a
 
   &-info
     text-align: center
+    display: flex
+    flex-direction: column
 
     &__role
       @include bellefair-white
@@ -617,11 +619,11 @@ a
       justify-content: space-between
 
     &__image
-      order: 3
+      order: 2
       border: none
     
     &__picker
-      order: 2
+      order: 4
       margin: 2.5rem auto
       
     &-info
@@ -629,14 +631,17 @@ a
       width: 59.6354%
 
       &__role
+        order: 1
         font-size: 1.5rem
         line-height: 1.75rem
 
       &__name
+        order: 2
         font-size: 2.5rem
         line-height: 2.875rem
 
       &__bio
+        order: 3
         font-size: 1rem
         line-height: 1.75rem
         margin: 0 auto
@@ -703,7 +708,7 @@ a
         margin: 1rem auto
 
       &__description
-        width: 65.1%
+        width: 65.6%
         font-size: 1rem
         line-height: 1.75rem
         margin-bottom: 6.0625rem
@@ -723,30 +728,41 @@ a
     &__decorative-line
       position: absolute
       height: 1px
-      // width: 32.847222%
       background-color: $quarter-white
       left: 10.4375rem
       right: 55.55555%
-      // left: 11.597222%
       z-index: 6
 
   .nav
     position: relative
     right: 0
+    padding-right: 2.53012048%
     width: 57.638888%
 
-    &-list-item__text
-      font-size: 1rem
-      line-height: 1.1875rem
-      letter-spacing: 0.16875rem
+    &-list
+      width: 68.29923685%
 
-      &--number
-        display: inline
+      &-item
+        
+        &::before
+          border-bottom: 0.1875rem solid $half-transparent-white
+
+        &--active::before
+          border-bottom: 0.1875rem solid $basic-white
+
+        &__text
+          font-size: 1rem
+          line-height: 1.1875rem
+          letter-spacing: 0.16875rem
+
+          &--number
+            display: inline
+            margin-right: 0.75rem
 
   .section-header
     position: absolute
     top: 0
-    left: 0
+    left: 0.09375rem
     width: 50%
     font-size: 1.75rem
     line-height: 2.125rem
@@ -792,7 +808,7 @@ a
   .destination
     background: $background-overlay url('/assets/destination/background-destination-desktop.jpg') no-repeat
     background-size: cover
-    padding: 13.25rem 10.1875rem 7.375rem 10.40625rem
+    padding: 13.25rem 10.1875rem 7.375rem 10.3125rem
 
     &-container
       width: 100%
@@ -800,7 +816,6 @@ a
       flex-direction: row
       justify-content: space-between
       align-items: end
-      // padding: 0 10.1875rem 0 10.40625rem
 
     &-picker
       width: 17.84375rem
@@ -841,56 +856,125 @@ a
   .crew
     background: $background-overlay url('/assets/crew/background-crew-desktop.jpg') no-repeat
     background-size: cover
-    padding-top: 10rem
+    padding: 13.25rem 0 0 10.3125rem
 
     &-container
-      width: 90%
+      width: 100%
       height: 100%
-      justify-content: center
-      align-items: space-between
-      flex-wrap: wrap
-      margin: 0 auto
+      flex-direction: row
+      align-items: end
+      margin: 0
 
     &__picker
-      width: 50%
+      position: absolute
+      left: 0
+      bottom: 5.875rem
+      width: 8.25rem
+      margin: 7.5rem 0 0 0.125rem
 
     &__image
-      height: 60rem
-      width: 50%
-      flex-grow: 2
     
     &-info
-      width: 50%
+      align-items: start
+      height: 100%
       text-align: left
+
+      &__role
+        font-size: 2rem
+        line-height: 2.3125rem
+        margin: 11.75rem 0 0 0.03125rem
+
+      &__name
+        font-size: 3.5rem
+        line-height: 4rem
+        margin: 0.9375rem 0 0 0.03125rem 
+
+      &__bio
+        width: 27.75rem
+        font-size: 1.125rem
+        line-height: 2rem
+        hyphens: none
+        -moz-hyphens: none
+        overflow-wrap: normal
+        word-break: keep-all
+        margin: 1.6875rem 0 0 0
+
+  .douglas_hurley
+    &__image
+      width: 35.504375rem
+      height: 44.5rem
+      margin: 0 9% 0 0
+
+    &-info
+      width: 30.5rem
+
+  .mark_shuttleworth
+    &__image
+      width: 28.34rem
+      height: 40.875rem
+      margin: 0 14% 0 0
+
+    &-info
+      width: 38.375rem
+
+  .victor_glover
+    &__image
+      width: 34.649375rem
+      height: 40.7rem
+      margin: 0 10.9% 0 0
+
+    &-info
+      width: 27.0625rem
+
+  .anousheh_ansari
+    &__image
+      width: 38.473125rem
+      height: 37.9375rem
+      margin: 0 8.014117647% 0 0
+
+    &-info
+      width: 33.25rem
 
   .tech
     background: $background-overlay url('/assets/technology/background-technology-desktop.jpg') no-repeat 
     background-size: cover
-    padding-top: 10rem
+    padding: 13.25rem 0 0 10.3125rem
 
     &-container
-      width: 90%
+      width: 100%
       height: 100%
-      justify-content: start
+      justify-content: space-between
       flex-direction: row
       align-items: center
-      margin: 0 auto
+      margin: 0
 
     &__image
-      position: absolute
-      right: -6%
       order: 3
-      height: 40rem
-      width: 40rem
-
+      width: 32.1875rem
+      height: 32.9375rem
+      
     &__picker
       order: 1
+      height: 18.9375rem
+      width: 5rem
+      margin: 0
     
     &-info
-      width: 30%
-      margin-left: 6rem
+      width: 32.5rem
+      height: 18.9375rem
+      margin: 0
       text-align: left
       order: 2
+
+      &__name
+        font-size: 3.5rem
+        line-height: 4rem
+
+      &__description
+        width: 27.75rem
+        font-size: 1.125rem
+        line-height: 2rem
+        margin: 0
 
 // NAV BACKGROUND DEFAULT FOR MOZILLA
 

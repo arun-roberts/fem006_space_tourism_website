@@ -2,7 +2,7 @@
 import type { NextPage } from 'next'
 import type { DestTypes, Dest } from '../lib/types'
 // REACT IMPORTS
-import { useContext, useEffect, useMemo } from 'react'
+import { useContext, useEffect } from 'react'
 // NEXT IMPORTS
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -17,13 +17,14 @@ const Destination: NextPage = () => {
     const value = useContext(AppContext);
     let { currentDest } = value.state;
     const { setCurrentDest }: { setCurrentDest: React.Dispatch<React.SetStateAction<number>>} = value
-    const destinations: DestTypes = useMemo(() =>[ ...data.destinations ], [ ...data.destinations ])
+    const destinations: DestTypes = [ ...data.destinations ]
+    const destArray: string[] = data.destinations.map(e => e.name)
     let destination: Dest = destinations[currentDest]
     const router = useRouter();
     useEffect(() => {
         const onHashChangeStart = (url: string) => {
             let hash: string = url.slice(url.indexOf('#') + 1)
-            let i: number = destinations.findIndex(e => e.name == hash)
+            let i: number = destArray.findIndex(e => e == hash)
             setCurrentDest(i == -1 ? 0 : i)
         };
 
@@ -32,7 +33,12 @@ const Destination: NextPage = () => {
         return () => {
             router.events.off("hashChangeStart", onHashChangeStart);
         };
-    }, [router.events, setCurrentDest, destinations]);
+    }, [router.events, setCurrentDest, destArray]);
+    // useLayoutEffect(() => {
+    //     let asPath = router.asPath.split('/')[2] || 'moon'
+    //     setCurrentDest(destinationsArray.indexOf(asPath))
+    //     console.log(asPath)
+    // }, [destinationsArray, router.asPath, setCurrentDest])
     
   return (
     <div className="destination">
@@ -45,6 +51,7 @@ const Destination: NextPage = () => {
                     layout="fill"
                     objectFit='contain' 
                     alt={`Image of ${destination.name}`} 
+                    priority
                 />
             </div>
             <div className='destination-info'>

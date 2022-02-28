@@ -1,9 +1,11 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import styles from '../styles/ContentPicker.module.css'
 
 const ContentPicker = ({data, buttonStyle, current}: {data: any[], buttonStyle: number, current: number}) => {
     const buttonStyles: string[] = [ 'dot', 'numbered', 'named']
     const button = buttonStyles[buttonStyle] || buttonStyles[0]
+    const router = useRouter()
     return (
         <nav className={styles[button]}>
             <ul className={styles[button + '__list']}>

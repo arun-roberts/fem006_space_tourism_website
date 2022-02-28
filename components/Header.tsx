@@ -1,13 +1,17 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import AppContext from '../public/context'
 
 const Header: () => JSX.Element = () => {
     const [isOpen, setIsOpen ] = useState<boolean>(false)
     const [ isActive, setIsActive ] = useState<string>('')
     const router = useRouter()
     useEffect(() => {setIsActive(router.pathname.length > 1 ? router.pathname.slice(1) : 'home')}, [router.pathname])
+
+    const value = useContext(AppContext);
+    const { setCurrentDest }: { setCurrentDest: React.Dispatch<React.SetStateAction<number>>} = value
 
   return (
     <header className="header">
@@ -49,7 +53,13 @@ const Header: () => JSX.Element = () => {
                         <a className='nav-list-item__text'><span className='nav-list-item__text--number'>00</span>Home</a>
                     </Link>
                 </li>
-                <li className={`nav-list-item${isActive === 'destination' ? ' nav-list-item--active' : ''}`} onClick={() => setIsOpen(false)}>
+                <li 
+                    className={`nav-list-item${isActive === 'destination' ? ' nav-list-item--active' : ''}`} 
+                    onClick={() => {
+                        setIsOpen(false)
+                        setCurrentDest(0)
+                    }}
+                >
                     <Link href='/destination'>
                         <a className='nav-list-item__text'><span className='nav-list-item__text--number'>01</span>Destination</a>
                     </Link>

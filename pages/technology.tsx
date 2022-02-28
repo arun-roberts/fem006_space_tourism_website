@@ -2,7 +2,7 @@
 import type { NextPage } from 'next'
 import type { TechTypes, Tech } from '../lib/types'
 // REACT IMPORTS
-import { useContext, useEffect, useMemo } from "react"
+import { useContext, useEffect } from "react"
 // NEXT IMPORTS
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -16,14 +16,15 @@ import ContentPicker from '../components/ContentPicker'
 const Technology: NextPage = () => {
     const value = useContext(AppContext);
     let { currentTech, isDesktop } = value.state;
-    const { setCurrentTech }: { setCurrentTech: React.Dispatch<React.SetStateAction<number>>} = value;
-    const tech: TechTypes = useMemo(() => [ ...data.technology ], [ ...data.technology ])
+    const { setCurrentTech }: { setCurrentTech: React.Dispatch<React.SetStateAction<number>> } = value;
+    const tech: TechTypes = [ ...data.technology ]
+    const techArray: string[] = data.technology.map(e => e.name)
     let displayed: Tech = tech[currentTech]
     const router = useRouter();
     useEffect(() => {
         const onHashChangeStart = (url: string) => {
             let hash: string = url.slice(url.indexOf('#') + 1).replace('_', ' ')
-            let i: number = tech.findIndex(e => e.name == hash)
+            let i: number = techArray.findIndex(e => e == hash)
             setCurrentTech(i == -1 ? 0 : i)
         };
 
@@ -32,7 +33,7 @@ const Technology: NextPage = () => {
         return () => {
             router.events.off("hashChangeStart", onHashChangeStart);
         };
-    }, [router.events, setCurrentTech, tech]);
+    }, [router.events, setCurrentTech, techArray]);
   return (
     <div className='tech'>
         <Meta />
@@ -48,6 +49,7 @@ const Technology: NextPage = () => {
               layout="fill"
               objectFit='fill' 
               alt={`Image of ${displayed.name}`}
+              priority
             />
           </div>
           <div className='tech__picker'>
@@ -56,7 +58,7 @@ const Technology: NextPage = () => {
           <div className='tech-info'>
             <h5 className='tech-info__sub'>The Terminology...</h5>
             <h2 className='tech-info__name'>{displayed.name}</h2>
-            <p className='tech-info__description'>{displayed.description}</p>
+            <p className='tech-info__description'>{displayed.description.replaceAll('-', '\u2011')}</p>
           </div>
         </div>
     </div>
