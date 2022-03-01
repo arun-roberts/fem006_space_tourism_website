@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const Home: NextPage = () => {
   return (
-    <div className="landing">
+    <main className="landing">
       <div className="landing-container">
         <h5 className="landing__heading-five">So, you want to travel to</h5>
         <h1 className="landing__heading-one">Space</h1>
@@ -18,7 +18,7 @@ const Home: NextPage = () => {
           Explore
         </a>
       </Link>
-    </div>
+    </main>
   )
 }
 

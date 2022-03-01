@@ -6,7 +6,7 @@ import { useContext, useLayoutEffect } from 'react'
 // NEXT IMPORTS
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-
+// LOCAL IMPORTS
 import AppContext from '../public/context'
 import Meta from '../components/Meta'
 import data from '../public/data.json'
@@ -14,14 +14,16 @@ import ContentPicker from '../components/ContentPicker'
 
 
 const Destination: NextPage = () => {
+    // ACCESS STATE
     const value = useContext(AppContext);
     let { currentDest } = value.state;
     const { setCurrentDest }: { setCurrentDest: React.Dispatch<React.SetStateAction<number>>} = value
+    // ASSIGN DATA TO VARIABLES AND ATTACH TYPES
     const destinations: DestTypes = [ ...data.destinations ]
-    const destArray: string[] = data.destinations.map(e => e.name)
     let destination: Dest = destinations[currentDest]
+    // HANDLE PATH AND STATE UPDATES
     const router = useRouter();
-
+    const destArray: string[] = data.destinations.map(e => e.name)
     useLayoutEffect(() => {
         let hash = destArray.indexOf(router.asPath.slice(router.asPath.indexOf('#') + 1))
         setCurrentDest(hash == -1 ? 0 : hash)
@@ -29,10 +31,10 @@ const Destination: NextPage = () => {
     }, [destArray, router.asPath, setCurrentDest]);
     
   return (
-    <div className="destination">
+    <main className="destination">
         <Meta />
+        <h1 className="section-header"><span className='section-header__num'>01</span>PICK YOUR DESTINATION</h1>
         <div className='destination-container'>
-            <h1 className="section-header"><span className='section-header__num'>01</span>PICK YOUR DESTINATION</h1>
             <div className='destination__image'>
                 <Image 
                     src={destination.images.png.slice(1)} 
@@ -62,7 +64,7 @@ const Destination: NextPage = () => {
                 </ul>
             </div>
         </div>
-    </div>
+    </main>
   )
 }
 

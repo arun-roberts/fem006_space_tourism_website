@@ -6,7 +6,7 @@ import { useContext, useLayoutEffect } from 'react'
 // NEXT IMPORTS
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-
+// LOCAL IMPORTS
 import AppContext from '../public/context'
 import Meta from '../components/Meta'
 import data from '../public/data.json'
@@ -14,15 +14,17 @@ import ContentPicker from '../components/ContentPicker'
 
 
 const Crew: NextPage = () => {
+    // ACCESS STATE
     const value = useContext(AppContext)
     let { currentCrew } = value.state
     const { setCurrentCrew }: { setCurrentCrew: React.Dispatch<React.SetStateAction<number>> } = value
+    // ASSIGN DATA TO VARIABLES AND ATTACH TYPES
     const crew: CrewTypes = [ ...data.crew ]
-    const crewArray: string[] = data.crew.map(e => e.name.toLowerCase())
     const member: CrewMemb = crew[currentCrew]
     const classString: string = member.name.replace(' ', '_').toLowerCase()
+    // HANDLE PATH AND STATE UPDATES
     const router = useRouter();
-
+    const crewArray: string[] = data.crew.map(e => e.name.toLowerCase())
     useLayoutEffect(() => {
       let hash = router.asPath.slice(router.asPath.indexOf('#') + 1).replace(/\_/g, ' ').toLowerCase(),
              i = crewArray.indexOf(hash)
@@ -30,10 +32,10 @@ const Crew: NextPage = () => {
   }, [crewArray, router.asPath, setCurrentCrew]);
 
   return (
-    <div className="crew">
+    <main className="crew">
         <Meta />
+        <h2 className="section-header"><span className="section-header__num">02</span> MEET YOUR CREW</h2>
         <div className="crew-container">
-          <h2 className="section-header"><span className="section-header__num">02</span> MEET YOUR CREW</h2>
           <div className={`crew__image ${classString}__image`}>
             <Image 
               src={member.images.png.slice(1)} 
@@ -52,7 +54,7 @@ const Crew: NextPage = () => {
             <p className='crew-info__bio'>{member.bio.replace(/\-/g, '\u2011')}</p>
           </div>
         </div>
-    </div>
+    </main>
   )
 }
 
