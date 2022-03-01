@@ -2,7 +2,7 @@
 import type { NextPage } from 'next'
 import type { DestTypes, Dest } from '../lib/types'
 // REACT IMPORTS
-import { useContext, useEffect } from 'react'
+import { useContext, useLayoutEffect } from 'react'
 // NEXT IMPORTS
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -21,24 +21,12 @@ const Destination: NextPage = () => {
     const destArray: string[] = data.destinations.map(e => e.name)
     let destination: Dest = destinations[currentDest]
     const router = useRouter();
-    useEffect(() => {
-        const onHashChangeStart = (url: string) => {
-            let hash: string = url.slice(url.indexOf('#') + 1)
-            let i: number = destArray.findIndex(e => e == hash)
-            setCurrentDest(i == -1 ? 0 : i)
-        };
 
-        router.events.on("hashChangeStart", onHashChangeStart);
-
-        return () => {
-            router.events.off("hashChangeStart", onHashChangeStart);
-        };
-    }, [router.events, setCurrentDest, destArray]);
-    // useLayoutEffect(() => {
-    //     let asPath = router.asPath.split('/')[2] || 'moon'
-    //     setCurrentDest(destinationsArray.indexOf(asPath))
-    //     console.log(asPath)
-    // }, [destinationsArray, router.asPath, setCurrentDest])
+    useLayoutEffect(() => {
+        let hash = destArray.indexOf(router.asPath.slice(router.asPath.indexOf('#') + 1))
+        setCurrentDest(hash == -1 ? 0 : hash)
+        console.log(hash)
+    }, [destArray, router.asPath, setCurrentDest]);
     
   return (
     <div className="destination">

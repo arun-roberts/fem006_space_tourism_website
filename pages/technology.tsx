@@ -2,7 +2,7 @@
 import type { NextPage } from 'next'
 import type { TechTypes, Tech } from '../lib/types'
 // REACT IMPORTS
-import { useContext, useEffect } from "react"
+import { useContext, useLayoutEffect } from "react"
 // NEXT IMPORTS
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -18,22 +18,16 @@ const Technology: NextPage = () => {
     let { currentTech, isDesktop } = value.state;
     const { setCurrentTech }: { setCurrentTech: React.Dispatch<React.SetStateAction<number>> } = value;
     const tech: TechTypes = [ ...data.technology ]
-    const techArray: string[] = data.technology.map(e => e.name)
+    const techArray: string[] = data.technology.map(e => e.name.toLowerCase())
     let displayed: Tech = tech[currentTech]
     const router = useRouter();
-    useEffect(() => {
-        const onHashChangeStart = (url: string) => {
-            let hash: string = url.slice(url.indexOf('#') + 1).replace('_', ' ')
-            let i: number = techArray.findIndex(e => e == hash)
-            setCurrentTech(i == -1 ? 0 : i)
-        };
 
-        router.events.on("hashChangeStart", onHashChangeStart);
+    useLayoutEffect(() => {
+      let hash = router.asPath.slice(router.asPath.indexOf('#') + 1).replace(/\_/g, ' ').toLowerCase(),
+             i = techArray.indexOf(hash)
+      setCurrentTech(i == -1 ? 0 : i)
+  }, [techArray, router.asPath, setCurrentTech]);
 
-        return () => {
-            router.events.off("hashChangeStart", onHashChangeStart);
-        };
-    }, [router.events, setCurrentTech, techArray]);
   return (
     <div className='tech'>
         <Meta />
@@ -47,7 +41,7 @@ const Technology: NextPage = () => {
             <Image 
               src={isDesktop ? displayed.images.portrait.src.slice(1) : displayed.images.landscape.src.slice(1)} 
               layout="fill"
-              objectFit='fill' 
+              objectFit='cover' 
               alt={`Image of ${displayed.name}`}
               priority
             />
@@ -58,7 +52,7 @@ const Technology: NextPage = () => {
           <div className='tech-info'>
             <h5 className='tech-info__sub'>The Terminology...</h5>
             <h2 className='tech-info__name'>{displayed.name}</h2>
-            <p className='tech-info__description'>{displayed.description.replaceAll('-', '\u2011')}</p>
+            <p className='tech-info__description'>{displayed.description.replace(/\-/g, '\u2011')}</p>
           </div>
         </div>
     </div>

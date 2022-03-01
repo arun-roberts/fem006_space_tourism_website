@@ -10,9 +10,6 @@ const Header: () => JSX.Element = () => {
     const router = useRouter()
     useEffect(() => {setIsActive(router.pathname.length > 1 ? router.pathname.slice(1) : 'home')}, [router.pathname])
 
-    const value = useContext(AppContext);
-    const { setCurrentDest }: { setCurrentDest: React.Dispatch<React.SetStateAction<number>>} = value
-
   return (
     <header className="header">
         <div className="header__logo">
@@ -53,13 +50,7 @@ const Header: () => JSX.Element = () => {
                         <a className='nav-list-item__text'><span className='nav-list-item__text--number'>00</span>Home</a>
                     </Link>
                 </li>
-                <li 
-                    className={`nav-list-item${isActive === 'destination' ? ' nav-list-item--active' : ''}`} 
-                    onClick={() => {
-                        setIsOpen(false)
-                        setCurrentDest(0)
-                    }}
-                >
+                <li className={`nav-list-item${isActive === 'destination' ? ' nav-list-item--active' : ''}`} onClick={() => setIsOpen(false)}>
                     <Link href='/destination'>
                         <a className='nav-list-item__text'><span className='nav-list-item__text--number'>01</span>Destination</a>
                     </Link>

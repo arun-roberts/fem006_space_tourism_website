@@ -2,7 +2,7 @@
 import type { NextPage } from 'next'
 import type { CrewTypes, CrewMemb } from '../lib/types'
 // REACT IMPORTS
-import { useContext, useEffect, useMemo } from 'react'
+import { useContext, useLayoutEffect } from 'react'
 // NEXT IMPORTS
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -18,23 +18,17 @@ const Crew: NextPage = () => {
     let { currentCrew } = value.state
     const { setCurrentCrew }: { setCurrentCrew: React.Dispatch<React.SetStateAction<number>> } = value
     const crew: CrewTypes = [ ...data.crew ]
-    const crewArray: string[] = data.crew.map(e => e.name)
+    const crewArray: string[] = data.crew.map(e => e.name.toLowerCase())
     const member: CrewMemb = crew[currentCrew]
     const classString: string = member.name.replace(' ', '_').toLowerCase()
     const router = useRouter();
-    useEffect(() => {
-        const onHashChangeStart = (url: string) => {
-            let hash: string = url.slice(url.indexOf('#') + 1).replace('_', ' ')
-            let i: number = crewArray.findIndex(e => e == hash)
-            setCurrentCrew(i == -1 ? 0 : i)
-        };
 
-        router.events.on("hashChangeStart", onHashChangeStart);
+    useLayoutEffect(() => {
+      let hash = router.asPath.slice(router.asPath.indexOf('#') + 1).replace(/\_/g, ' ').toLowerCase(),
+             i = crewArray.indexOf(hash)
+      setCurrentCrew(i == -1 ? 0 : i)
+  }, [crewArray, router.asPath, setCurrentCrew]);
 
-        return () => {
-            router.events.off("hashChangeStart", onHashChangeStart);
-        };
-    }, [router.events, setCurrentCrew, crewArray]);
   return (
     <div className="crew">
         <Meta />
@@ -55,7 +49,7 @@ const Crew: NextPage = () => {
             </div>
             <h3 className='crew-info__role'>{member.role}</h3>
             <h4 className='crew-info__name'>{member.name}</h4>
-            <p className='crew-info__bio'>{member.bio.replaceAll('-', '\u2011')}</p>
+            <p className='crew-info__bio'>{member.bio.replace(/\-/g, '\u2011')}</p>
           </div>
         </div>
     </div>
