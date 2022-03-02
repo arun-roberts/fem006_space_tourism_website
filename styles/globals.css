@@ -1,4 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;400;600;700&family=Barlow:wght@200&family=Bellefair&display=swap");
+@supports (-moz-appearance: none) {
+  .nav {
+    background-color: rgba(11, 13, 23, 0.9);
+    z-index: 4;
+  }
+  @media screen and (min-width: 760px) {
+    .nav {
+      background-color: #131720;
+      z-index: 4;
+    }
+  }
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -10,6 +23,7 @@ html, body {
   max-height: 100vh;
   width: 100%;
   overflow: hidden;
+  font-size: 16px;
 }
 
 ul {
@@ -901,7 +915,7 @@ a {
   }
 }
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1200px) {
   .header {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -959,6 +973,7 @@ a {
     font-size: 1.75rem;
     line-height: 2.125rem;
     letter-spacing: 0.2953125rem;
+    margin: 0;
   }
   .section-header__num {
     margin-right: 3.75rem;
@@ -1080,9 +1095,14 @@ a {
     margin: 0;
   }
   .crew__picker {
+    position: absolute;
     left: 0;
+    bottom: 13.6627906976744%;
+    -ms-flex-item-align: end;
+        -ms-grid-row-align: end;
+        align-self: end;
     width: 8.25rem;
-    margin: 7.5rem 0 0 0.125rem;
+    margin: 0;
   }
   .crew__image {
     position: relative;
@@ -1090,19 +1110,12 @@ a {
     z-index: 0;
   }
   .crew-info {
+    position: relative;
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: start;
     height: 100%;
     text-align: left;
-    padding-bottom: 5.875rem;
-    overflow-y: scroll;
-    z-index: 6;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .crew-info::-webkit-scrollbar {
-    display: none;
   }
   .crew-info__role {
     font-size: 2rem;
@@ -1208,16 +1221,45 @@ a {
   }
 }
 
-@supports (-moz-appearance: none) {
-  .nav {
-    background-color: rgba(11, 13, 23, 0.9);
-    z-index: 4;
+@media screen and (min-width: 1600px) {
+  html {
+    font-size: 105%;
   }
-  @media screen and (min-width: 760px) {
-    .nav {
-      background-color: #131720;
-      z-index: 4;
-    }
+}
+
+@media screen and (min-width: 1800px) {
+  html {
+    font-size: 120%;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  html {
+    font-size: 140%;
+  }
+}
+
+@media screen and (min-width: 2500px) {
+  html {
+    font-size: 180%;
+  }
+}
+
+@media screen and (min-width: 2900px) {
+  html {
+    font-size: 200%;
+  }
+}
+
+@media screen and (min-width: 3200px) {
+  html {
+    font-size: 225%;
+  }
+}
+
+@media screen and (min-width: 3600px) {
+  html {
+    font-size: 250%;
   }
 }
 /*# sourceMappingURL=globals.css.map */

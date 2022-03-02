@@ -27,6 +27,18 @@ $background-overlay: rgba(11, 13, 23, 0.6)
   color: $light-blue
   text-transform: uppercase
 
+// NAV BACKGROUND DEFAULT FOR MOZILLA
+
+@supports (-moz-appearance:none) 
+  .nav
+    background-color: rgba(11, 13, 23, 0.9)
+    z-index: 4
+
+  @media screen and (min-width: 760px)
+    .nav
+      background-color: #131720
+      z-index: 4
+
 //---------------HTML GENERALS-----------------
 * 
   box-sizing: border-box
@@ -37,6 +49,7 @@ html, body
   max-height: 100vh
   width: 100%
   overflow: hidden
+  font-size: 16px
 
 ul
   list-style: none
@@ -707,7 +720,7 @@ a
         line-height: 1.75rem
         margin-bottom: 6.0625rem
 
-@media screen and (min-width: 1300px)
+@media screen and (min-width: 1200px)
   .header
     display: flex
     justify-content: space-between
@@ -761,6 +774,7 @@ a
     font-size: 1.75rem
     line-height: 2.125rem
     letter-spacing: 0.2953125rem
+    margin: 0
 
     &__num
       margin-right: 3.75rem
@@ -859,15 +873,14 @@ a
       align-items: end
       margin: 0
       
-      
-
     &__picker
-      // position: absolute
+      position: absolute
       left: 0
       // bottom: 5.875rem
-      // align-self: end
+      bottom: 13.6627906976744%
+      align-self: end
       width: 8.25rem
-      margin: 7.5rem 0 0 0.125rem
+      margin: 0
 
     &__image
       position: relative
@@ -875,17 +888,11 @@ a
       z-index: 0
     
     &-info
+      position: relative
       align-items: start
       height: 100%
       text-align: left
-      padding-bottom: 5.875rem
-      overflow-y: scroll
-      z-index: 6
-      -ms-overflow-style: none  
-      scrollbar-width: none
-
-      &::-webkit-scrollbar 
-          display: none
+      // padding-bottom: 5.875rem
 
       &__role
         font-size: 2rem
@@ -896,7 +903,6 @@ a
         font-size: 3.5rem
         line-height: 4rem
         margin: 0.9375rem 0 0 0.03125rem 
-        // white-space: nowrap
 
       &__bio
         width: 27.75rem
@@ -981,14 +987,30 @@ a
         line-height: 2rem
         margin: 0
 
-// NAV BACKGROUND DEFAULT FOR MOZILLA
+@media screen and (min-width: 1600px)
+  html
+    font-size: 105%
 
-@supports (-moz-appearance:none) 
-  .nav
-    background-color: rgba(11, 13, 23, 0.9)
-    z-index: 4
+@media screen and (min-width: 1800px)
+  html
+    font-size: 120%
 
-  @media screen and (min-width: 760px)
-    .nav
-      background-color: #131720
-      z-index: 4
+@media screen and (min-width: 2000px)
+  html
+    font-size: 140%
+
+@media screen and (min-width: 2500px)
+  html
+    font-size: 180%
+
+@media screen and (min-width: 2900px)
+  html
+    font-size: 200%
+
+@media screen and (min-width: 3200px)
+  html
+    font-size: 225%
+
+@media screen and (min-width: 3600px)
+  html
+    font-size: 250%
