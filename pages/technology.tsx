@@ -14,7 +14,7 @@ import ContentPicker from '../components/ContentPicker'
 
 
 const Technology: NextPage = () => {
-    // ACCESS STATE
+    // ACCESS CONTEXT
     const value = useContext(AppContext);
     let { currentTech, isDesktop } = value.state;
     const { setCurrentTech }: { setCurrentTech: React.Dispatch<React.SetStateAction<number>> } = value;

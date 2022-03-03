@@ -14,7 +14,7 @@ import ContentPicker from '../components/ContentPicker'
 
 
 const Destination: NextPage = () => {
-    // ACCESS STATE
+    // ACCESS CONTEXT
     const value = useContext(AppContext);
     let { currentDest } = value.state;
     const { setCurrentDest }: { setCurrentDest: React.Dispatch<React.SetStateAction<number>>} = value

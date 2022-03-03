@@ -14,7 +14,7 @@ import ContentPicker from '../components/ContentPicker'
 
 
 const Crew: NextPage = () => {
-    // ACCESS STATE
+    // ACCESS CONTEXT
     const value = useContext(AppContext)
     let { currentCrew } = value.state
     const { setCurrentCrew }: { setCurrentCrew: React.Dispatch<React.SetStateAction<number>> } = value

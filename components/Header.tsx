@@ -1,11 +1,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { useState, useEffect, useContext } from 'react'
-import AppContext from '../public/context'
+import { useState, useEffect } from 'react'
 
 const Header: () => JSX.Element = () => {
-    const [isOpen, setIsOpen ] = useState<boolean>(false)
+    const [ isOpen, setIsOpen ] = useState<boolean>(false)
     const [ isActive, setIsActive ] = useState<string>('')
     const router = useRouter()
     useEffect(() => {setIsActive(router.pathname.length > 1 ? router.pathname.slice(1) : 'home')}, [router.pathname])
@@ -34,6 +33,7 @@ const Header: () => JSX.Element = () => {
             </div>
         </div>
         <div className="header__decorative-line"></div>
+        <div className={`nav__exit-block ${isOpen && "nav__exit-block--open"}`} onClick={() => setIsOpen(false)}></div>
         <nav className={`nav ${isOpen ? 'nav--open' : 'nav--closed'}`}>
             <div className="nav__exit">
                 <Image 
