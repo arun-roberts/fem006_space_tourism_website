@@ -33,7 +33,7 @@ const Header: () => JSX.Element = () => {
             </div>
         </div>
         <div className="header__decorative-line"></div>
-        <div className={`nav__exit-block ${isOpen && "nav__exit-block--open"}`} onClick={() => setIsOpen(false)}></div>
+        <div className={isOpen ? "nav__exit-block" : ''} onClick={() => setIsOpen(false)}></div>
         <nav className={`nav ${isOpen ? 'nav--open' : 'nav--closed'}`}>
             <div className="nav__exit">
                 <Image 
