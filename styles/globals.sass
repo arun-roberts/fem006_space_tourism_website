@@ -148,7 +148,6 @@ $desktop-m: 1800px
 html, body
   min-height: 100%
   width: 100%
-  // overflow: hidden
   font-size: 16px
 
 ul
@@ -161,7 +160,7 @@ a
   width: 100%
   height: 5rem
   padding: 1.5rem
-  position: absolute
+  position: fixed
   z-index: 2
 
   &__logo
@@ -247,10 +246,6 @@ a
   width: 100vw
   height: 100vh
   z-index: 2
-  // transform: scaleX(0)
-
-  // &--open
-  //   transform: scaleX(101%)
 
 .section-header
   text-align: center
@@ -352,21 +347,22 @@ a
       height: 95%
     
 .destination
-  position: absolute
-  bottom: 0
-  top: 0
   width: 100%
-  height: 100vh
-  background: $background-overlay url('/assets/destination/background-destination-mobile.jpg') no-repeat
-  background-blend-mode: darken
-  background-size: cover
+  height: 100%
   padding-top: 5.5rem
-  overflow-y: scroll
-  -ms-overflow-style: none
-  scrollbar-width: none
 
-  &::-webkit-scrollbar
-    display: none
+  &__background
+    position: fixed
+    bottom: 0
+    top: 0
+    left: 0
+    right: 0
+    background-color: $background-overlay
+    background-image: url('/assets/destination/background-destination-mobile.jpg')
+    background-repeat: no-repeat
+    background-blend-mode: darken
+    background-size: cover
+    z-index: -1
 
   &-container
     width: 100%
@@ -430,21 +426,22 @@ a
         @include subheading-one
         
 .crew
-  position: absolute
-  bottom: 0
-  top: 0
   width: 100%
-  height: 100vh
-  background:$background-overlay url('/assets/crew/background-crew-mobile.jpg') no-repeat 
-  background-blend-mode: darken
-  background-size: cover
+  height: 100%
   padding-top: 5.5rem
-  overflow-y: scroll
-  -ms-overflow-style: none
-  scrollbar-width: none
 
-  &::-webkit-scrollbar
-    display: none
+  &__background
+    position: fixed
+    bottom: 0
+    top: 0
+    left: 0
+    right: 0
+    background-color: $background-overlay
+    background-image: url('/assets/crew/background-crew-mobile.jpg')
+    background-repeat: no-repeat
+    background-blend-mode: darken
+    background-size: cover
+    z-index: -1
 
   &-container
     width: 87.2%
@@ -695,9 +692,10 @@ a
       margin-bottom: 5.625rem
   
   .destination
-    background: $background-overlay url('/assets/destination/background-destination-tablet.jpg') no-repeat
-    background-size: cover
     padding-top: 8.5rem
+
+    &__background
+      background-image: url('/assets/destination/background-destination-tablet.jpg')
 
     &-container
       height: calc(100% - 1.5rem)
@@ -732,9 +730,10 @@ a
         margin-top: 1.8125rem
 
   .crew
-    background: $background-overlay url('/assets/crew/background-crew-tablet.jpg') no-repeat
-    background-size: cover
     padding-top: 8.5rem
+
+    &__background
+      background-image: url('/assets/crew/background-crew-tablet.jpg')
 
     &-container
       height: calc(100% - 1.5rem)
@@ -746,7 +745,6 @@ a
       order: 2
       margin: 0
       bottom: 0
-      border: none
 
       &::before
         display: none
@@ -881,7 +879,7 @@ a
           margin-right: 0.75rem
 
   .section-header
-    position: absolute
+    // position: absolute
     text-align: left
     top: 23.55555555%
     left: 10.40625rem
@@ -916,9 +914,10 @@ a
         height: 100%
 
   .destination
-    background: $background-overlay url('/assets/destination/background-destination-desktop.jpg') no-repeat
-    background-size: cover
-    padding: 0 0.5rem 7.7777777778% 4.5625rem
+    padding: 13.25rem 0.5rem 7.7777777778% 4.5625rem
+
+    &__background
+      background-image: url('/assets/destination/background-destination-desktop.jpg')
 
     &-container
       width: 100%
@@ -960,36 +959,32 @@ a
         margin-right: 3.8125rem
       
   .crew
-    background: $background-overlay url('/assets/crew/background-crew-desktop.jpg') no-repeat
-    background-size: cover
     padding: 13.25rem 0 0 10.3125rem
-    overflow: scroll
+
+    &__background
+      background-image: url('/assets/crew/background-crew-desktop.jpg')
 
     &-container
-      width: 100%
+      width: 50%
       height: 100%
-      flex-direction: row
-      align-items: end
+      align-items: start
       margin: 0
+      padding: 0
       
     &__picker
-      position: absolute
-      left: 0
-      bottom: 13.6627906976744%
-      align-self: end
       width: 8.25rem
-      margin: 0
+      margin: 0 0 5.875rem 0
 
     &__image
-      position: relative
+      position: fixed
       bottom: 0
       z-index: 0
     
     &-info
-      position: relative
       align-items: start
       height: 100%
       text-align: left
+      margin: 0 0 5.875rem 0
 
       &__role
         margin: 11.75rem 0 0 0.03125rem
@@ -999,12 +994,14 @@ a
 
       &__bio
         width: 27.75rem
+        height: 10rem
         margin: 1.6875rem 0 0 0
 
   .douglas_hurley
     &__image
       width: 35.504375rem
       height: 44.5rem
+      left: 50%
       margin: 0 9% 0 0
 
     &-info
@@ -1023,6 +1020,7 @@ a
     &__image
       width: 34.649375rem
       height: 40.7rem
+      left: 51.597222222%
       margin: 0 10.9% 0 0
 
     &-info

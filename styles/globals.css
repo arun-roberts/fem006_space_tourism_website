@@ -24,7 +24,7 @@ a {
   width: 100%;
   height: 5rem;
   padding: 1.5rem;
-  position: absolute;
+  position: fixed;
   z-index: 2;
 }
 
@@ -365,22 +365,23 @@ a {
 }
 
 .destination {
-  position: absolute;
-  bottom: 0;
-  top: 0;
   width: 100%;
-  height: 100vh;
-  background: rgba(11, 13, 23, 0.6) url("/assets/destination/background-destination-mobile.jpg") no-repeat;
-  background-blend-mode: darken;
-  background-size: cover;
+  height: 100%;
   padding-top: 5.5rem;
-  overflow-y: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
-.destination::-webkit-scrollbar {
-  display: none;
+.destination__background {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(11, 13, 23, 0.6);
+  background-image: url("/assets/destination/background-destination-mobile.jpg");
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
+  background-size: cover;
+  z-index: -1;
 }
 
 .destination-container {
@@ -511,22 +512,23 @@ a {
 }
 
 .crew {
-  position: absolute;
-  bottom: 0;
-  top: 0;
   width: 100%;
-  height: 100vh;
-  background: rgba(11, 13, 23, 0.6) url("/assets/crew/background-crew-mobile.jpg") no-repeat;
-  background-blend-mode: darken;
-  background-size: cover;
+  height: 100%;
   padding-top: 5.5rem;
-  overflow-y: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
-.crew::-webkit-scrollbar {
-  display: none;
+.crew__background {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(11, 13, 23, 0.6);
+  background-image: url("/assets/crew/background-crew-mobile.jpg");
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
+  background-size: cover;
+  z-index: -1;
 }
 
 .crew-container {
@@ -953,9 +955,10 @@ a {
     margin-bottom: 5.625rem;
   }
   .destination {
-    background: rgba(11, 13, 23, 0.6) url("/assets/destination/background-destination-tablet.jpg") no-repeat;
-    background-size: cover;
     padding-top: 8.5rem;
+  }
+  .destination__background {
+    background-image: url("/assets/destination/background-destination-tablet.jpg");
   }
   .destination-container {
     height: calc(100% - 1.5rem);
@@ -995,9 +998,10 @@ a {
     margin-top: 1.8125rem;
   }
   .crew {
-    background: rgba(11, 13, 23, 0.6) url("/assets/crew/background-crew-tablet.jpg") no-repeat;
-    background-size: cover;
     padding-top: 8.5rem;
+  }
+  .crew__background {
+    background-image: url("/assets/crew/background-crew-tablet.jpg");
   }
   .crew-container {
     height: calc(100% - 1.5rem);
@@ -1013,7 +1017,6 @@ a {
             order: 2;
     margin: 0;
     bottom: 0;
-    border: none;
   }
   .crew__image::before {
     display: none;
@@ -1158,7 +1161,6 @@ a {
     margin-right: 0.75rem;
   }
   .section-header {
-    position: absolute;
     text-align: left;
     top: 23.55555555%;
     left: 10.40625rem;
@@ -1202,9 +1204,10 @@ a {
     height: 100%;
   }
   .destination {
-    background: rgba(11, 13, 23, 0.6) url("/assets/destination/background-destination-desktop.jpg") no-repeat;
-    background-size: cover;
-    padding: 0 0.5rem 7.7777777778% 4.5625rem;
+    padding: 13.25rem 0.5rem 7.7777777778% 4.5625rem;
+  }
+  .destination__background {
+    background-image: url("/assets/destination/background-destination-desktop.jpg");
   }
   .destination-container {
     width: 100%;
@@ -1255,45 +1258,36 @@ a {
     margin-right: 3.8125rem;
   }
   .crew {
-    background: rgba(11, 13, 23, 0.6) url("/assets/crew/background-crew-desktop.jpg") no-repeat;
-    background-size: cover;
     padding: 13.25rem 0 0 10.3125rem;
-    overflow: scroll;
+  }
+  .crew__background {
+    background-image: url("/assets/crew/background-crew-desktop.jpg");
   }
   .crew-container {
-    width: 100%;
+    width: 50%;
     height: 100%;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: end;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
     margin: 0;
+    padding: 0;
   }
   .crew__picker {
-    position: absolute;
-    left: 0;
-    bottom: 13.6627906976744%;
-    -ms-flex-item-align: end;
-        -ms-grid-row-align: end;
-        align-self: end;
     width: 8.25rem;
-    margin: 0;
+    margin: 0 0 5.875rem 0;
   }
   .crew__image {
-    position: relative;
+    position: fixed;
     bottom: 0;
     z-index: 0;
   }
   .crew-info {
-    position: relative;
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: start;
     height: 100%;
     text-align: left;
+    margin: 0 0 5.875rem 0;
   }
   .crew-info__role {
     margin: 11.75rem 0 0 0.03125rem;
@@ -1303,11 +1297,13 @@ a {
   }
   .crew-info__bio {
     width: 27.75rem;
+    height: 10rem;
     margin: 1.6875rem 0 0 0;
   }
   .douglas_hurley__image {
     width: 35.504375rem;
     height: 44.5rem;
+    left: 50%;
     margin: 0 9% 0 0;
   }
   .douglas_hurley-info {
@@ -1324,6 +1320,7 @@ a {
   .victor_glover__image {
     width: 34.649375rem;
     height: 40.7rem;
+    left: 51.597222222%;
     margin: 0 10.9% 0 0;
   }
   .victor_glover-info {

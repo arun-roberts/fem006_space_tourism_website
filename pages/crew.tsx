@@ -35,6 +35,7 @@ const Crew: NextPage = () => {
     <main className="crew">
         <Meta />
         <h2 className="section-header"><span className="section-header__num">02</span> MEET YOUR CREW</h2>
+        <div className="crew__background"></div>
         <div className="crew-container">
           <div className={`crew__image ${classString}__image`}>
             <Image 

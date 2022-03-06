@@ -34,6 +34,7 @@ const Destination: NextPage = () => {
     <main className="destination">
         <Meta />
         <h1 className="section-header"><span className='section-header__num'>01</span>PICK YOUR DESTINATION</h1>
+        <div className="destination__background"></div>
         <div className='destination-container'>
             <div className='destination__image'>
                 <Image 
