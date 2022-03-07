@@ -6,6 +6,8 @@ const ContentPicker = ({data, buttonStyle, current}: {data: any[], buttonStyle: 
     const buttonStyles: string[] = [ 'dot', 'numbered', 'named']
     const button = buttonStyles[buttonStyle] || buttonStyles[0]
     const router = useRouter()
+    const pathname = router.pathname.split('/')[1]
+
     return (
         <nav className={styles[button]}>
             <ul className={styles[button + '__list']}>
@@ -15,7 +17,7 @@ const ContentPicker = ({data, buttonStyle, current}: {data: any[], buttonStyle: 
                     key={i}
                     className={styles[button + '__list_item']}
                   >
-                    <Link href={`#${e.name.replace(' ', '_')}`}>
+                    <Link href={`/${pathname}/${e.name.replace(' ', '-').toLowerCase()}`}>
                       <a 
                         className={`${styles[button + '__button']} ${styles[`${i == current ? button + '__button___active' : button + '__button___inactive'}`]}`}
                       >
