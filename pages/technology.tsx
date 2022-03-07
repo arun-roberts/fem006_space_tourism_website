@@ -34,6 +34,7 @@ const Technology: NextPage = () => {
     <main className='tech'>
         <Meta />
         <h2 className="section-header"><span className="section-header__num">03</span> SPACE LAUNCH 101</h2>
+        <div className="tech__background"></div>
         <div className='tech-container'>
           <div className='tech__image'>
             <Image 

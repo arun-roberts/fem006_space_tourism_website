@@ -6,10 +6,17 @@
   margin: 0;
 }
 
-html, body {
-  min-height: 100%;
+html, body, #__next {
+  height: 100%;
   width: 100%;
+  overflow-x: hidden;
   font-size: 16px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar, #__next::-webkit-scrollbar {
+  display: none;
 }
 
 ul {
@@ -22,7 +29,7 @@ a {
 
 .header {
   width: 100%;
-  height: 5rem;
+  height: 5.5rem;
   padding: 1.5rem;
   position: fixed;
   z-index: 2;
@@ -160,7 +167,7 @@ a {
 }
 
 .section-header {
-  text-align: center;
+  display: inline-block;
   font-family: 'Barlow Condensed', sans-serif;
   color: #fff;
   font-size: 1rem;
@@ -180,13 +187,8 @@ a {
 }
 
 .landing {
-  position: absolute;
-  bottom: 0;
-  top: 0;
   width: 100%;
-  height: 100vh;
-  background: #0b0d17 url("/assets/home/background-home-mobile.jpg") no-repeat;
-  background-size: cover;
+  min-height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -200,6 +202,19 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.landing__background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #0b0d17;
+  background-image: url("/assets/home/background-home-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
 }
 
 .landing-container {
@@ -306,6 +321,8 @@ a {
   position: relative;
   color: #0b0d17;
   font-size: 1.25rem;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -317,8 +334,7 @@ a {
           align-items: center;
   width: 9.375rem;
   height: 9.375rem;
-  margin-bottom: 3rem;
-  margin-bottom: calc(100vh * 0.071964);
+  margin: 9.75rem auto 5.625rem;
   border-radius: 50%;
   z-index: 1;
   -webkit-transition: all ease-out 150ms;
@@ -365,8 +381,18 @@ a {
 }
 
 .destination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   padding-top: 5.5rem;
 }
 
@@ -386,9 +412,7 @@ a {
 
 .destination-container {
   width: 100%;
-  height: 100%;
-  height: calc(100% - 1.1875rem);
-  position: relative;
+  min-height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -419,7 +443,7 @@ a {
 
 .destination-info__body {
   margin: 1.4375rem auto 0;
-  width: 87.2%;
+  width: 20.4375rem;
   text-align: center;
   border-bottom: 1px solid #383B4B;
 }
@@ -453,7 +477,7 @@ a {
   line-height: 1.5625rem;
   color: #d0d6f9;
   font-weight: 200;
-  width: 95%;
+  width: 99%;
   margin: 0 auto 2rem;
 }
 
@@ -512,8 +536,18 @@ a {
 }
 
 .crew {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   padding-top: 5.5rem;
 }
 
@@ -533,8 +567,7 @@ a {
 
 .crew-container {
   width: 87.2%;
-  height: 100%;
-  height: calc(100% - 1.1875rem);
+  min-height: 100%;
   margin: 0 auto;
   position: relative;
   display: -webkit-box;
@@ -632,7 +665,8 @@ a {
   line-height: 1.5625rem;
   color: #d0d6f9;
   font-weight: 200;
-  width: 98.87%;
+  width: 20.2rem;
+  height: 9.375rem;
   margin: 0 auto 3.375rem;
 }
 
@@ -711,29 +745,38 @@ a {
 }
 
 .tech {
-  position: absolute;
-  bottom: 0;
-  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
-  height: 100vh;
-  background: rgba(11, 13, 23, 0.6) url("/assets/technology/background-technology-mobile.jpg") no-repeat;
-  background-size: cover;
-  background-blend-mode: darken;
+  min-height: 100%;
   padding-top: 5.5rem;
-  overflow-y: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
-.tech::-webkit-scrollbar {
-  display: none;
+.tech__background {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(11, 13, 23, 0.6);
+  background-image: url("/assets/technology/background-technology-mobile.jpg");
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
+  background-size: cover;
+  z-index: -1;
 }
 
 .tech-container {
-  position: relative;
   width: 87.2%;
-  height: 100%;
-  height: calc(100% - 1.1875rem);
+  min-height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -807,7 +850,7 @@ a {
   line-height: 1.5625rem;
   color: #d0d6f9;
   font-weight: 200;
-  width: 97.5%;
+  width: 20rem;
   margin: 0 auto 5.0825rem;
 }
 
@@ -928,7 +971,6 @@ a {
     display: none;
   }
   .section-header {
-    display: inline-block;
     font-size: 1.25rem;
     line-height: 1.5rem;
     letter-spacing: 0.2109375rem;
@@ -937,9 +979,8 @@ a {
   .section-header__num {
     margin-right: 1.1875rem;
   }
-  .landing {
-    background: #0b0d17 url("/assets/home/background-home-tablet.jpg") no-repeat;
-    background-size: cover;
+  .landing__background {
+    background-image: url("/assets/home/background-home-tablet.jpg");
   }
   .landing-container {
     width: 28.125rem;
@@ -955,13 +996,13 @@ a {
     margin-bottom: 5.625rem;
   }
   .destination {
+    display: block;
     padding-top: 8.5rem;
   }
   .destination__background {
     background-image: url("/assets/destination/background-destination-tablet.jpg");
   }
   .destination-container {
-    height: calc(100% - 1.5rem);
     padding-top: 3.75rem;
   }
   .destination__image {
@@ -998,6 +1039,7 @@ a {
     margin-top: 1.8125rem;
   }
   .crew {
+    display: block;
     padding-top: 8.5rem;
   }
   .crew__background {
@@ -1047,12 +1089,14 @@ a {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
+    width: 100%;
+    height: 5.25rem;
     margin: 0 auto;
   }
   .douglas_hurley__image {
     width: 28.523125rem;
     height: 35.75rem;
-    margin: 0 20.283854166% 0 20.29296875%;
+    margin: 0 17% 0 23%;
   }
   .douglas_hurley-info {
     width: 28.523125rem;
@@ -1082,9 +1126,11 @@ a {
     width: 33.5rem;
   }
   .tech {
-    background: rgba(11, 13, 23, 0.6) url("/assets/technology/background-technology-tablet.jpg") no-repeat;
-    background-size: cover;
+    display: block;
     padding-top: 8.5rem;
+  }
+  .tech__background {
+    background-image: url("/assets/technology/background-technology-tablet.jpg");
   }
   .tech-container {
     height: calc(100% - 1.5rem);
@@ -1126,7 +1172,7 @@ a {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    height: 10.666667%;
+    height: 6rem;
     padding: 0;
     margin-top: 2.5rem;
   }
@@ -1161,21 +1207,15 @@ a {
     margin-right: 0.75rem;
   }
   .section-header {
-    text-align: left;
-    top: 23.55555555%;
-    left: 10.40625rem;
-    width: 50%;
     font-size: 1.75rem;
     line-height: 2.125rem;
     letter-spacing: 0.2953125rem;
-    margin: 0;
+    margin: 13.25rem 0 0 10.40625rem;
   }
   .section-header__num {
     margin-right: 3.75rem;
   }
   .landing {
-    background: #0b0d17 url("/assets/home/background-home-desktop.jpg") no-repeat;
-    background-size: cover;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -1183,6 +1223,9 @@ a {
     -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: end;
+  }
+  .landing__background {
+    background-image: url("/assets/home/background-home-desktop.jpg");
   }
   .landing-container {
     text-align: left;
@@ -1204,14 +1247,12 @@ a {
     height: 100%;
   }
   .destination {
-    padding: 13.25rem 0.5rem 7.7777777778% 4.5625rem;
+    padding: 0;
   }
   .destination__background {
     background-image: url("/assets/destination/background-destination-desktop.jpg");
   }
   .destination-container {
-    width: 100%;
-    height: 100%;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -1222,20 +1263,21 @@ a {
     -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: end;
+    padding: 0;
   }
   .destination-picker {
     width: 17.84375rem;
     height: 2.125rem;
-    margin: 5rem 0 0 0;
+    margin: 0;
   }
   .destination__image {
     height: 27.8125rem;
     width: 27.8125rem;
-    margin: 0;
+    margin: 6.0625rem 0 7rem 4.5625rem;
   }
   .destination-info {
     width: 27.8125rem;
-    margin: 0 0 0.375rem 0;
+    margin: 4rem 0.375rem 7.375rem 0;
   }
   .destination-info__body {
     text-align: left;
@@ -1258,7 +1300,7 @@ a {
     margin-right: 3.8125rem;
   }
   .crew {
-    padding: 13.25rem 0 0 10.3125rem;
+    padding: 0;
   }
   .crew__background {
     background-image: url("/assets/crew/background-crew-desktop.jpg");
@@ -1274,7 +1316,7 @@ a {
   }
   .crew__picker {
     width: 8.25rem;
-    margin: 0 0 5.875rem 0;
+    margin: 5.5rem 0 5.875rem 0.125rem;
   }
   .crew__image {
     position: fixed;
@@ -1287,10 +1329,10 @@ a {
             align-items: start;
     height: 100%;
     text-align: left;
-    margin: 0 0 5.875rem 0;
+    margin: 9.625rem 0 0 10.3125rem;
   }
   .crew-info__role {
-    margin: 11.75rem 0 0 0.03125rem;
+    margin: 0 0 0 0.03125rem;
   }
   .crew-info__name {
     margin: 0.9375rem 0 0 0.03125rem;
@@ -1303,7 +1345,7 @@ a {
   .douglas_hurley__image {
     width: 35.504375rem;
     height: 44.5rem;
-    left: 50%;
+    left: 51.03680555556%;
     margin: 0 9% 0 0;
   }
   .douglas_hurley-info {
@@ -1312,6 +1354,7 @@ a {
   .mark_shuttleworth__image {
     width: 28.34rem;
     height: 40.875rem;
+    left: 55.55555555556%;
     margin: 0 14% 0 0;
   }
   .mark_shuttleworth-info {
@@ -1329,19 +1372,22 @@ a {
   .anousheh_ansari__image {
     width: 38.473125rem;
     height: 37.9375rem;
+    left: 51.0416666667%;
     margin: 0 8.014117647% 0 0;
   }
   .anousheh_ansari-info {
     width: 33.25rem;
   }
   .tech {
-    background: rgba(11, 13, 23, 0.6) url("/assets/technology/background-technology-desktop.jpg") no-repeat;
-    background-size: cover;
     padding: 13.25rem 0 0 10.3125rem;
+    padding: 0;
+  }
+  .tech__background {
+    background-image: url("/assets/technology/background-technology-desktop.jpg");
   }
   .tech-container {
     width: 100%;
-    height: 100%;
+    max-height: 100%;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -1353,6 +1399,7 @@ a {
         -ms-flex-align: center;
             align-items: center;
     margin: 0;
+    padding: 1.625rem 0 6.3125rem 10.3125rem;
   }
   .tech__image {
     -webkit-box-ordinal-group: 4;
@@ -1379,7 +1426,7 @@ a {
             order: 2;
   }
   .tech-info__description {
-    width: 27.75rem;
+    width: 27.42rem;
     margin: 0;
   }
 }
@@ -1387,214 +1434,6 @@ a {
 @media screen and (min-width: 1400px) {
   html {
     font-size: 100%;
-  }
-}
-
-@media screen and (min-width: 1800px) {
-  .header {
-    height: 10.666667%;
-    padding: 0;
-    margin-top: 2.5rem;
-  }
-  .header__logo {
-    margin-left: 3.4375rem;
-  }
-  .header__decorative-line {
-    height: 1px;
-    left: 10.4375rem;
-    right: 55.55555%;
-  }
-  .nav {
-    padding-right: 2.53012048%;
-    width: 57.638888%;
-  }
-  .nav-list {
-    width: 68.29923685%;
-  }
-  .nav-list-item::before {
-    border-bottom: 0.1875rem solid rgba(255, 255, 255, 0.5);
-  }
-  .nav-list-item--active::before {
-    border-bottom: 0.1875rem solid #fff;
-  }
-  .nav-list-item__text {
-    font-size: 1rem;
-    line-height: 1.1875rem;
-    letter-spacing: 0.16875rem;
-  }
-  .nav-list-item__text--number {
-    margin-right: 0.75rem;
-  }
-  .section-header {
-    top: 23.55555555%;
-    left: 10.40625rem;
-    width: 50%;
-    font-size: 1.75rem;
-    line-height: 2.125rem;
-    letter-spacing: 0.2953125rem;
-    margin: 0;
-  }
-  .section-header__num {
-    margin-right: 3.75rem;
-  }
-  .landing-container {
-    width: 28.125rem;
-    height: 23.875rem;
-    margin: 0 0 9.097222% 11.458333%;
-  }
-  .landing__heading-five {
-    font-size: 1.75rem;
-    line-height: 2.125rem;
-    letter-spacing: 0.2953125rem;
-  }
-  .landing__heading-one {
-    line-height: 10.75rem;
-  }
-  .landing__text-body {
-    font-size: 1.125rem;
-    line-height: 2rem;
-  }
-  .landing__button {
-    margin: 0 11.458333% 9.097222% 0;
-  }
-  .landing__button:active::before {
-    width: 100%;
-    height: 100%;
-  }
-  .destination {
-    padding: 0 0.5rem 7.7777777778% 4.5625rem;
-  }
-  .destination-picker {
-    width: 17.84375rem;
-    height: 2.125rem;
-    margin: 5rem 0 0 0;
-  }
-  .destination__image {
-    height: 27.8125rem;
-    width: 27.8125rem;
-    margin: 0;
-  }
-  .destination-info {
-    width: 27.8125rem;
-    margin: 0 0 0.375rem 0;
-  }
-  .destination-info__heading {
-    font-size: 6.25rem;
-    line-height: 7.1875rem;
-    margin: 2.3125rem 0 0.875rem;
-  }
-  .destination-info__text {
-    font-size: 1.125rem;
-    line-height: 2rem;
-    margin: 0 0 3.375rem;
-  }
-  .destination-stats {
-    margin-bottom: 0;
-  }
-  .destination-stats__item {
-    width: 10rem;
-    margin-right: 3.8125rem;
-  }
-  .crew {
-    padding: 13.25rem 0 0 10.3125rem;
-  }
-  .crew-container {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-  }
-  .crew__picker {
-    left: 0;
-    bottom: 13.6627906976744%;
-    width: 8.25rem;
-    margin: 0;
-  }
-  .crew-info__role {
-    font-size: 2rem;
-    line-height: 2.3125rem;
-    margin: 11.75rem 0 0 0.03125rem;
-  }
-  .crew-info__name {
-    margin: 0.9375rem 0 0 0.03125rem;
-  }
-  .crew-info__bio {
-    width: 27.75rem;
-    font-size: 1.125rem;
-    line-height: 2rem;
-    margin: 1.6875rem 0 0 0;
-  }
-  .douglas_hurley__image {
-    width: 35.504375rem;
-    height: 44.5rem;
-    margin: 0 9% 0 0;
-  }
-  .douglas_hurley-info {
-    width: 30.5rem;
-  }
-  .mark_shuttleworth__image {
-    width: 28.34rem;
-    height: 40.875rem;
-    margin: 0 14% 0 0;
-  }
-  .mark_shuttleworth-info {
-    width: 38.375rem;
-  }
-  .victor_glover__image {
-    width: 34.649375rem;
-    height: 40.7rem;
-    margin: 0 10.9% 0 0;
-  }
-  .victor_glover-info {
-    width: 27.0625rem;
-  }
-  .anousheh_ansari__image {
-    width: 38.473125rem;
-    height: 37.9375rem;
-    margin: 0 8.014117647% 0 0;
-  }
-  .anousheh_ansari-info {
-    width: 33.25rem;
-  }
-  .tech {
-    padding: 13.25rem 0 0 10.3125rem;
-  }
-  .tech-container {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-  }
-  .tech__image {
-    -webkit-box-ordinal-group: 4;
-        -ms-flex-order: 3;
-            order: 3;
-    width: 32.1875rem;
-    height: 32.9375rem;
-  }
-  .tech__picker {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
-    height: 18.9375rem;
-    width: 5rem;
-    margin: 0;
-  }
-  .tech-info {
-    width: 32.5rem;
-    height: 18.9375rem;
-    margin: 0;
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
-  }
-  .tech-info__name {
-    font-size: 3.5rem;
-    line-height: 4rem;
-  }
-  .tech-info__description {
-    width: 27.75rem;
-    font-size: 1.125rem;
-    line-height: 2rem;
-    margin: 0;
   }
 }
 

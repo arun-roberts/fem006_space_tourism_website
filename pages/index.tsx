@@ -4,6 +4,7 @@ import Link from 'next/link'
 const Home: NextPage = () => {
   return (
     <main className="landing">
+      <div className="landing__background"></div>
       <div className="landing-container">
         <h5 className="landing__heading-five">So, you want to travel to</h5>
         <h1 className="landing__heading-one">Space</h1>
