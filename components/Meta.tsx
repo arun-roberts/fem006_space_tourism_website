@@ -15,8 +15,8 @@ const Meta = ({title, keywords, description}: {title: string, keywords: string, 
 
 Meta.defaultProps = {
     title: 'Frontend Mentor | Space tourism website',
-    keywords: 'Dirt, Hand, music, Australia, Arun, jazz, scum jazz, improv',
-    description: 'A music devoid of purity'
+    keywords: 'space, travel, tourism, interstellar, solar system, exploration, moon, mars, europa, titan, launch, spaceport, capsule, Douglas Hurley, Mark Shuttleworth, Victor Glover, Anousheh Ansari, engineer, pilot, commander, mission, astronaut, nasa',
+    description: 'A whole solar system just waiting to be explored!'
 }
 
 export default Meta
