@@ -6,25 +6,24 @@ import Layout from '../components/Layout'
 import Meta from '../components/Meta'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [ currentDest, setCurrentDest ] = useState<number>(0)
-  const [ currentCrew, setCurrentCrew ] = useState<number>(0)
-  const [ currentTech, setCurrentTech ] = useState<number>(0)
+  const [ isFreshPress, setIsFreshPress ] = useState<boolean>(false)
   const [ isDesktop, setIsDesktop ] = useState<boolean>(false)
   useEffect(() => {
     setIsDesktop(window.matchMedia(`(min-width: 1200px)`).matches) 
   },[])
+  useEffect(() => { 
+    const scrollGuy = document.getElementById('__next')
+    if (scrollGuy && isFreshPress) scrollGuy.scrollTop = 0
+    setIsFreshPress(false)
+  }, [isFreshPress, setIsFreshPress])
+ 
   return (
     <AppContext.Provider
       value={{
         state: {
-          currentDest,
-          currentCrew,
-          currentTech,
           isDesktop
         },
-        setCurrentDest,
-        setCurrentCrew,
-        setCurrentTech
+        setIsFreshPress
       }}
     >
       <Layout>

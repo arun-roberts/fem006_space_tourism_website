@@ -3,7 +3,6 @@ import type { CrewTypes, CrewMemb } from '../lib/types'
 // NEXT IMPORTS
 import Image from 'next/image'
 // LOCAL IMPORTS
-import AppContext from "../public/context"
 import ContentPicker from './ContentPicker'
 
 

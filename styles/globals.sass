@@ -9,15 +9,23 @@ $basic-white: #fff
 // -----------COLOUR VARIANTS--------------
 $half-transparent-white: rgba(255, 255, 255, 0.5)
 $quarter-white: rgba(255, 255, 255, 0.25)
+$mostly-transparent-white: rgba(255, 255, 255, 0.1)
 $nav-white: rgba(255, 255, 255, 0.04)
 $background-overlay: rgba(11, 13, 23, 0.6)
 
-// ---------BREAK POINTS-------------------
+// --------------BREAK POINTS-------------------
 $tablet: 760px
 $desktop-sm: 1200px
 $desktop-m: 1800px
+$desktop-l: 2200px
+$desktop-xl: 3000px
 
-// ------------TYPOGRAPHY------------------
+// ----------BASE FONT SIZES-------------------
+$base-rems: 16px
+$l-rems: $base-rems * 1.3
+$xl-rems: $l-rems * 1.5
+
+// ------------BASE FONTS------------------
 @mixin bellefair-white
   font-family: 'Bellefair', serif
   color: $basic-white
@@ -33,6 +41,7 @@ $desktop-m: 1800px
   color: $light-blue
   text-transform: uppercase
 
+// ------------------TYPOGRAPHY---------------------
 @mixin heading-one
   @include bellefair-white
   font-size: 5rem
@@ -58,6 +67,10 @@ $desktop-m: 1800px
     font-size: 6.25rem
     line-height: 7.1875rem 
 
+  @media (min-width: $desktop-m)
+    font-size: 8.125rem
+    line-height: 9.34375rem
+
 @mixin heading-three
   @include bellefair-white
   font-size: 1.5rem
@@ -71,6 +84,10 @@ $desktop-m: 1800px
   @media (min-width: $desktop-sm)
     font-size: 3.5rem
     line-height: 4rem
+
+  @media (min-width: $desktop-m)
+    font-size: 4.55rem
+    line-height: 5.2rem
 
 @mixin heading-four
   @include bellefair-white
@@ -86,6 +103,10 @@ $desktop-m: 1800px
   @media (min-width: $desktop-sm)
     font-size: 2rem
     line-height: 2.3125rem
+  
+  @media (min-width: $desktop-m)
+    font-size: 2.6rem
+    line-height: 3.00625rem
 
 @mixin heading-five
   @include barlow-blue
@@ -104,17 +125,31 @@ $desktop-m: 1800px
     font-size: 1.75rem
     letter-spacing: 0.2953125rem
     line-height: 2.125rem
+  
+  @media (min-width: $desktop-m)
+    font-size: 2.275rem
+    letter-spacing: 0.3810625rem
+    line-height: 2.7625rem
 
 @mixin subheading-one
   @include bellefair-white
-  line-height: 2rem
   font-size: 1.75rem
+  line-height: 2rem
+
+  @media (min-width: $desktop-m)
+    font-size: 2.275rem
+    line-height: 2.6rem
 
 @mixin subheading-two
   @include barlow-white
   font-size: 0.875rem
   line-height: 1.0625rem
   letter-spacing: 0.14765625rem
+
+  @media (min-width: $desktop-m)
+    font-size: 1.1375rem
+    line-height: 1.38125rem
+    letter-spacing: 0.19194825rem
 
 @mixin nav-text
   @include barlow-white
@@ -123,6 +158,16 @@ $desktop-m: 1800px
   letter-spacing: 0.16875rem
   text-transform: uppercase
   font-weight: 200
+
+  @media (min-width: $tablet)
+    font-size: 0.875rem
+    line-height: 1.0625rem
+    letter-spacing: 0.147656rem
+
+  @media (min-width: $desktop-m)
+    font-size: 1rem
+    line-height: 1.54375rem
+    letter-spacing: 0.219375rem
 
 @mixin text-body
   font-family: 'barlow', sans-serif
@@ -138,6 +183,10 @@ $desktop-m: 1800px
   @media (min-width: $desktop-sm)
     font-size: 1.125rem
     line-height: 2rem
+  
+  @media (min-width: $desktop-m)
+    font-size: 1.4625rem
+    line-height: 2.6rem
 
 //---------------HTML GENERALS-----------------
 * 
@@ -149,7 +198,7 @@ html, body, #__next
   height: 100%
   width: 100%
   overflow-x: hidden
-  font-size: 16px
+  font-size: $base-rems
   -ms-overflow-style: none  
   scrollbar-width: none
 
@@ -188,14 +237,6 @@ a
   width: 2.5rem
   height: 2.5rem
   position: relative
-
-.sub-header
-  @include bellefair-white
-  line-height: 2rem
-  font-size: 1.75rem
-
-  &--num
-    opacity: 0.25
 
 .nav
   position: absolute
@@ -255,12 +296,7 @@ a
 
 .section-header
   display: inline-block
-  @include barlow-white
-  font-size: 1rem
-  letter-spacing: 0.16875rem
-  line-height: 1.1875rem
-  text-transform: uppercase
-  font-weight: 200
+  @include nav-text
   margin: 0 auto
   
   &__num
@@ -313,12 +349,11 @@ a
 
   &__button
     @include bellefair-white
-    font-size: 1rem
+    font-size: 1.25rem
     line-height: 1.125rem
     font-weight: 100
     position: relative
     color: $dark-blue
-    font-size: 1.25rem
     flex-shrink: 0
     display: flex
     justify-content: center
@@ -340,12 +375,12 @@ a
       transition: transform ease 250ms
 
     &::before
-      background-color: $quarter-white
+      background-color: $mostly-transparent-white
       transform: scale(50%)
       z-index: -1
     
     &:hover::before
-      transform: scale(150%)
+      transform: scale(164.2335%)
 
     &::after
       background-color: $basic-white
@@ -610,7 +645,7 @@ a
       width: 20rem
       margin: 0 auto 5.0825rem
 
-@media screen and (min-width: 760px)
+@media screen and (min-width: $tablet)
   .header
     display: flex
     justify-content: space-between
@@ -676,10 +711,7 @@ a
 
         &__text
           width: 100%
-          font-size: 0.875rem
-          line-height: 1.0625rem
-          letter-spacing: 0.147656rem
-
+          
           &--number
             display: none
   
@@ -708,6 +740,8 @@ a
     &__button
       width: 15.125rem
       height: 15.125rem
+      font-size: 2rem
+      line-height: 2.3125rem
       margin-bottom: 5.625rem
   
   .destination
@@ -858,7 +892,7 @@ a
         width: 65.6%
         margin-bottom: 6.0625rem
 
-@media screen and (min-width: 1200px)
+@media screen and (min-width: $desktop-sm)
   html
     font-size: 87.5%
 
@@ -886,6 +920,7 @@ a
     right: 0
     padding-right: 2.53012048%
     width: 57.638888%
+    z-index: 5
 
     &-list
       width: 68.29923685%
@@ -927,6 +962,8 @@ a
       margin: 0 0 9.097222% 11.458333%
 
     &__button
+      width: 17.125rem
+      height: 17.125rem
       margin: 0 11.458333% 9.097222% 0
 
       &:active::before
@@ -978,7 +1015,6 @@ a
         margin-right: 3.8125rem
       
   .crew
-    height: 
     padding: 0
 
     &__background
@@ -1099,241 +1135,159 @@ a
   html
     font-size: 100%
   
-// @media screen and (min-width: 1800px)
-//   .header
-//     height: 10.666667%
-//     padding: 0
-//     margin-top: 2.5rem
+@media screen and (min-width: $desktop-m)
+  .header
+    height: 8rem
+    margin-top: 3.25rem
 
-//     &__logo
-//       margin-left: 3.4375rem
+    &__logo
+      margin-left: 4.46875rem
 
-//     &__decorative-line
-//       height: 1px
-//       left: 10.4375rem
-//       right: 55.55555%
+    &__decorative-line
+      height: 1.3px
+      left: 13.6rem
+      right: 55.55555%
+      z-index: 6
 
-//   .nav
-//     padding-right: 2.53012048%
-//     width: 57.638888%
+  .nav
+    padding-right: 2.53012048%
+    width: 57.638888%
+    height: 6.5rem
 
-//     &-list
-//       width: 68.29923685%
+    &-list
+      width: 65%
 
-//       &-item
+      &-item
         
-//         &::before
-//           border-bottom: 0.1875rem solid $half-transparent-white
+        &::before
+          border-bottom: 0.2rem solid $half-transparent-white
 
-//         &--active::before
-//           border-bottom: 0.1875rem solid $basic-white
+        &--active::before
+          border-bottom: 0.2rem solid $basic-white
 
-//         &__text
-//           font-size: 1rem
-//           line-height: 1.1875rem
-//           letter-spacing: 0.16875rem
+        &__text--number
+          margin-right: 0.975rem
 
-//           &--number
-//             margin-right: 0.75rem
+  .section-header
+    font-size: 2rem
+    margin: 15rem 0 0 13.528125rem
 
-//   .section-header
-//     top: 23.55555555%
-//     left: 10.40625rem
-//     width: 50%
-//     font-size: 1.75rem
-//     line-height: 2.125rem
-//     letter-spacing: 0.2953125rem
-//     margin: 0
+  .landing
 
-//     &__num
-//       margin-right: 3.75rem
+    &-container
+      width: 36.5625rem
 
-//   .landing
+    &__button
+      margin: 0 11.458333% 9.097222% 0
 
-//     &-container
-//       width: 28.125rem
-//       height: 23.875rem
-//       margin: 0 0 9.097222% 11.458333%
+  .destination
 
-//     &__heading-five
-//       font-size: 1.75rem
-//       line-height: 2.125rem
-//       letter-spacing: 0.2953125rem
+    &-picker
+      width: 23rem
 
-//     &__heading-one
-//       line-height: 10.75rem
+    &__image
+      height: 36.15625rem
+      width: 36.15625rem
+      margin: 7.88125rem 0 6.3rem 5.93125rem
 
+    &-info
+      width: 36.15625rem
+      margin: 5.2rem 0.4875rem 6.6375rem 0
 
-//     &__text-body
-//       font-size: 1.125rem
-//       line-height: 2rem
+      &__heading 
+        margin: 2rem 0 0.875rem
 
-//     &__button
-//       margin: 0 11.458333% 9.097222% 0
+      &__text
+        margin: 0 0 4rem 
 
-//       &:active::before
-//         width: 100%
-//         height: 100%
+    &-stats
 
-//   .destination
-//     padding: 0 0.5rem 7.7777777778% 4.5625rem
-
-//     &-picker
-//       width: 17.84375rem
-//       height: 2.125rem
-//       margin: 5rem 0 0 0
-
-//     &__image
-//       height: 27.8125rem
-//       width: 27.8125rem
-//       margin: 0
-
-//     &-info
-//       width: 27.8125rem
-//       margin: 0 0 0.375rem 0
-
-//       &__heading 
-//         font-size: 6.25rem
-//         line-height: 7.1875rem 
-//         margin: 2.3125rem 0 0.875rem
-
-//       &__text
-//         font-size: 1.125rem
-//         line-height: 2rem
-//         margin: 0 0 3.375rem 
-
-//     &-stats
-//       margin-bottom: 0
-
-//       &__item
-//         width: 10rem
-//         margin-right: 3.8125rem
+      &__item
+        width: 13rem
+        margin-right: 4.95625rem
       
-//   .crew
-//     padding: 13.25rem 0 0 10.3125rem
+  .crew
 
-//     &-container
-//       width: 100%
-//       height: 100%
-//       margin: 0
+    &__picker
+      width: 10.725rem
+      margin: 5rem 0 7.6375rem 0.1625rem
+
+    &-info
+      margin: 12rem 0 0 13.40625rem
+
+      &__role
+        margin: 0 0 0 0.040625rem
+
+      &__name
+        margin: 1.21875rem 0 0 0.040625rem 
+
+      &__bio
+        width: 36.075rem
+        height: 13rem
+        margin: 2.19375rem 0 0 0
+
+  .douglas_hurley
+    &__image
+      width: 46.1556875rem
+      height: 57.85rem
+
+    &-info
+      width: 39.65rem
+
+  .mark_shuttleworth
+    &__image
+      width: 36.842rem
+      height: 53.1375rem
+
+    &-info
+      width: 49.8875rem
+
+  .victor_glover
+    &__image
+      width: 45.0441875rem
+      height: 52.91rem
+
+    &-info
+      width: 35.18125rem
+
+  .anousheh_ansari
+    &__image
+      width: 50.0150625rem
+      height: 49.31875rem
+
+    &-info
+      width: 43.225rem
+
+  .tech
+
+    &-container
+      padding: 2.1125rem 0 6rem 13.40625rem
+
+    &__image
+      width: 41.84375rem
+      height: 42.81875rem
       
-//     &__picker
-//       left: 0
-//       bottom: 13.6627906976744%
-//       width: 8.25rem
-//       margin: 0
-
-//     &-info
-
-//       &__role
-//         font-size: 2rem
-//         line-height: 2.3125rem
-//         margin: 11.75rem 0 0 0.03125rem
-
-//       &__name
-//         margin: 0.9375rem 0 0 0.03125rem 
-
-//       &__bio
-//         width: 27.75rem
-//         font-size: 1.125rem
-//         line-height: 2rem
-//         margin: 1.6875rem 0 0 0
-
-//   .douglas_hurley
-//     &__image
-//       width: 35.504375rem
-//       height: 44.5rem
-//       margin: 0 9% 0 0
-
-//     &-info
-//       width: 30.5rem
-
-//   .mark_shuttleworth
-//     &__image
-//       width: 28.34rem
-//       height: 40.875rem
-//       margin: 0 14% 0 0
-
-//     &-info
-//       width: 38.375rem
-
-//   .victor_glover
-//     &__image
-//       width: 34.649375rem
-//       height: 40.7rem
-//       margin: 0 10.9% 0 0
-
-//     &-info
-//       width: 27.0625rem
-
-//   .anousheh_ansari
-//     &__image
-//       width: 38.473125rem
-//       height: 37.9375rem
-//       margin: 0 8.014117647% 0 0
-
-//     &-info
-//       width: 33.25rem
-
-//   .tech
-//     padding: 13.25rem 0 0 10.3125rem
-
-//     &-container
-//       width: 100%
-//       height: 100%
-//       margin: 0
-
-//     &__image
-//       order: 3
-//       width: 32.1875rem
-//       height: 32.9375rem
-      
-//     &__picker
-//       order: 1
-//       height: 18.9375rem
-//       width: 5rem
-//       margin: 0
+    &__picker
+      height: 24.61875rem
+      width: 6.5rem
     
-//     &-info
-//       width: 32.5rem
-//       height: 18.9375rem
-//       margin: 0
-//       order: 2
+    &-info
+      width: 42.25rem
+      height: 24.61875rem
 
-//       &__name
-//         font-size: 3.5rem
-//         line-height: 4rem
+      &__description
+        width: 35.646rem
 
-//       &__description
-//         width: 27.75rem
-//         font-size: 1.125rem
-//         line-height: 2rem
-//         margin: 0
+@media screen and (min-width: $desktop-l)
+  html
+    font-size: $l-rems
 
-// @media screen and (min-width: 2000px)
-//   html
-//     font-size: 140%
-
-// @media screen and (min-width: 2500px)
-//   html
-//     font-size: 180%
-
-// @media screen and (min-width: 2900px)
-//   html
-//     font-size: 200%
-
-// @media screen and (min-width: 3200px)
-//   html
-//     font-size: 225%
-
-// @media screen and (min-width: 3600px)
-//   html
-//     font-size: 250%
-
+@media screen and (min-width: $desktop-xl)
+  html
+    font-size: $xl-rems
 
 // NAV BACKGROUND DEFAULT FOR MOZILLA
-
-@supports (-moz-appearance:none) 
+@supports (-moz-appearance: none) 
   .nav
     background-color: rgba(11, 13, 23, 0.9)
     z-index: 4
@@ -1342,3 +1296,9 @@ a
     .nav
       background-color: #131720
       z-index: 4
+
+// NAV BACKGROUND DEFAULT FOR IE 10+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) 
+  .nav
+    background-color: rgba(11, 13, 23, 0.9)
+    z-index: 4

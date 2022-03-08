@@ -77,7 +77,7 @@ $nav-white: rgba(255, 255, 255, 0.04)
       content: counter(numeral-counter)
 
     &:hover
-      border: 1px solid $basic-white
+      border: 0.0625rem solid $basic-white
 
     &___active
       background-color: rgba(255, 255, 255, 1)
@@ -85,7 +85,7 @@ $nav-white: rgba(255, 255, 255, 0.04)
 
     &___inactive
       background-color: rgba(255, 255, 255, 0)
-      border: 1.8px solid $quarter-white
+      border: 0.1125rem solid $quarter-white
       color: $basic-white
 
 .named
@@ -167,3 +167,25 @@ $nav-white: rgba(255, 255, 255, 0.04)
     &__button
       font-size: 2rem
       line-height: 2.3125rem
+
+@media screen and (min-width: 1800px)
+  .dot__list_item
+    width: 1.21875rem
+    height: 1.21875rem
+
+  .numbered__list
+
+    &_item
+      width: 6.5rem
+      height: 6.5rem
+
+    &__button
+      font-size: 2.6rem
+      line-height: 3.00625rem
+
+  .named
+    &__button
+      font-size: 1.15rem
+      letter-spacing: 0.16875rem
+      line-height: 1.1875rem
+      padding-bottom: 0.875rem
